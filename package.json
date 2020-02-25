@@ -1,0 +1,24 @@
+{
+  "name": "painonhallintasovellus",
+  "version": "1.0.0",
+  "description": "Painonhallintasovellus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heikkiket/painonhallintasovellus.git"
+  },
+  "author": "Heikki Ketoharju, Kari Lampi, Suvi Rannisto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heikkiket/painonhallintasovellus/issues"
+  },
+  "homepage": "https://github.com/heikkiket/painonhallintasovellus#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "npm": "^6.13.7"
+  }
+}
