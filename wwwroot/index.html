@@ -6,7 +6,12 @@
 </head>
 <body>
     <h1>Lose!t</h1>
+    <div id="app"></div>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript">main()</script>
+    <script type="text/javascript">fetchResult('/measures',function (data) {
+        console.log(data);
+        console.log("Heippa");
+        document.getElementById("app").innerHTML = JSON.stringify(data);
+    })</script>
 </body>
 </html>
