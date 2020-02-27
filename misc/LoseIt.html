@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lose It</title>
+    <link rel="stylesheet" type="text/css" href="css/LoseItStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&effect=anaglyph|3d-float:900&,100display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <h1>Lose<span class="red">!</span>t</h1>
+    <div class="header-background"></div>
+    <h2 class="font-effect-anaglyph">Current weight</h2>
+    <div id="current-weight" class="current-weight left">58.9 kg</div>
+    <table class="weight-table left-down">
+        <tr class="weight-table-headers font-effect-anaglyph" >
+            <th>Weight loss</th>
+            <th>Total weight loss</th>
+            <th>Previous weight</th>
+            <th>Body index</th>
+            <th>Still to lose</th>
+        </tr>
+        <tr>
+            <td id="weight-loss">4 kg</td>
+            <td id="total-weight-loss">9 kg</td>
+            <td id="previous-weight">60 kg</td>
+            <td id="body-index">26</td>
+            <td id="still-to-lose">39.9 kg</td>
+        </tr>
+    </table>
+    --<div class="navbar">
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i>Home</a>
+        <a href="#"><i class="fa fa-fw fa-search"></i>Search</a>
+        <a href="#"><i class="fa fa-fw fa-envelope"></i>History</a>
+        <a href="#"><i class="fa fa-fw fa-user"></i>Account</a>
+    </div>
+
+    <table class="input-history">
+        <tr>
+            <td>
+                <div class="weight-today-div">
+                    <form action="">
+                        <label>Weight of today</label>
+                        <input type="text" id="weight-today" name="weight-today" placeholder="Your current weight..">
+                        <input type="submit" value="Save" onclick="myFunction()">
+                    </form>
+                </div>
+            </td>
+            <td>
+                <div class="search">
+                    <form action="">
+                        <label>Search by date</label>
+                        <input type="text" id="weight-search" name="weight-search" placeholder="Date..">
+                        <input type="submit" value="Search">
+                    </form>
+                    <table>
+                        <tr><th>Date</th></tr>
+                        <tr><td>12.12.2020</td></tr>
+                        <tr><th>Weight</th></tr>
+                        <tr><td>99.9</td></tr>
+                        <tr><th>Weight loss</th></tr>
+                        <tr><td>22.2</td></tr>
+                        <tr><th>Total weight loss</th></tr>
+                        <tr><td>22.2</td></tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="weight-history">
+                    <table id="weight-measurements">
+                        <tr>
+                            <th>Date</th>
+                            <th>Weight</th>
+                            <th>Weight loss</th>
+                            <th>Total weight loss</th>
+                            <th>Body index</th>
+                        </tr>
+                        <!-- luodaan tr ja td ja uusin ylimmäiseksi -->
+                        <tr class="weights">
+                            <td>22.12.2020</td>
+                            <td>55.5</td>
+                            <td>22.2</td>
+                            <td>22.2</td>
+                            <td>22</td>
+                        </tr>
+                        <tr class="weights">
+                            <td>22.12.2020</td>
+                            <td>55.5</td>
+                            <td>22.2</td>
+                            <td>22.2</td>
+                            <td>22</td>
+                        </tr>
+                        <tr class="weights">
+                            <td>22.12.2020</td>
+                            <td>55.5</td>
+                            <td>22.2</td>
+                            <td>22.2</td>
+                            <td>22</td>
+                        </tr>
+                        <tr class="weights">
+                            <td>22.12.2020</td>
+                            <td>55.5</td>
+                            <td>22.2</td>
+                            <td>22.2</td>
+                            <td>22</td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="account">
+                    <table id="account-table">
+                        <tbody id="account-tbody">
+                            <tr><th>Name</th></tr>
+                            <tr id="tr-name"><td id="name"><input type="text" value="default">John Doe</td></tr>
+                            <tr><th>Height</th></tr>
+                            <tr id="tr-height"><td id="height">1.8</td></tr>
+                            <tr><th>Starting weight</th></tr>
+                            <tr id="tr-starting-weight"><td id="starting-weight">200</td></tr>
+                            <tr><th>Target weight</th></tr>
+                            <tr id="tr-target-weight"><td id="target-weight">299</td></tr>
+                        </tbody>
+                    </table>
+                    <form action="">
+                        <input type="button" value="Edit" onclick="handleAccount()"> <!-- Ja Save -->
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <img src="img/footer3.png" alt="Paris">
+    <script type="text/javascript" src="../LoseIt/js/LoseIt.js"></script>
+</body>
+</html>
