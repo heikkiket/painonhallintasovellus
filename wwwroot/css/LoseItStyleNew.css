@@ -1,0 +1,329 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-height:100vh;
+}
+
+.header-background {
+    background-image: url("../img/LoseItThinner3.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left top, right top;
+    height: 100%;
+}
+img {
+    width: 80%;
+    /*margin-left: -15em;*/
+    margin-bottom: 0;
+    position: absolute;
+    top: 44em;
+    left: 10em;
+    z-index: -1000;
+}
+.current-weight {
+    font-family: 'Roboto';
+    font-size: 6em;
+    font-weight: bold;
+    color: white;
+}
+.left {
+    position: absolute;
+    top: 0.65em;
+    left: 0.5em;
+}
+
+h1 {
+    font-family: 'Roboto';
+    font-size: 1.4em;
+    font-weight: bold;
+    position: absolute;
+    top: -0.3em;
+    right: 0.6em;
+}
+.red {
+    color: red;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h2 {
+    font-family: 'Roboto' ;
+    font-size: 1.3em;
+    font-weight: 900;
+    color: white;
+    position: absolute;
+    top: 1.2em;
+    left: 2.48em;
+}
+
+/*
+weight table
+*/
+
+.weight-table {
+    font-family: 'Roboto';
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+}
+.left-down {
+    position: absolute;
+    top: 1.9em;
+    left: 7.8em;
+    /*top: 3.2em;
+    left: 0.7em;*/
+}
+
+.weight-table-headers {
+    font-family: 'Roboto' ;
+    font-size: 0.4em;
+    font-weight: 900;
+    color: white;
+}
+.col {
+    font-size: 0.8em;
+}
+.th {
+    padding: 0 0.7em 0 0.7em;
+    text-align: left;
+}
+.col {
+    padding: 0 0em 0 0.35em;
+}
+
+/*
+navbar
+ */
+.navbar {
+    width: 100%;
+    overflow: auto;
+    position: absolute;
+    top: 15.5em;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.navbar a {
+    float: none;
+    padding: 1.5em 1.2em 1.1em 0.8em;
+    color: black;
+    font-family: 'Quicksand';
+    font-size: 0.7em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.5em;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    color: white;
+    background-color: deeppink;
+    border-radius: 100%;
+}
+
+.active {
+    background-color: darkorange;
+    border-radius: 100%;
+}
+
+/*
+input history table
+ */
+.input-history {
+    position: absolute;
+    top: 22em;
+    padding-left: 2em;
+    padding-right: 2em;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-bottom: 2em;
+}
+.input-history .col {
+    vertical-align: top;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/*
+weight today div
+ */
+
+.weight-today-div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 1.1em 0.85em 1em 0.85em;
+    width: 14em;
+}
+.weight-today-div form label {
+    font-family: Roboto;
+    font-weight: bold;
+}
+.weight-today-div input[type=text], select {
+    width: 100%;
+    padding: 1em 0.8em;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+.weight-today-div input[type=submit] {
+    width: 100%;
+    background-color: #af4c7e;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 0.3em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Roboto';
+}
+
+.weight-today-div input[type=submit]:hover {
+    background-color: #b90626;
+}
+/*
+search
+ */
+.search {
+    border-radius: 5px;
+    background-color: #f1e4ff;
+    padding: 1.1em 1.65em 1em 0;
+    /*position: absolute;
+    top: 22em;
+    left: 22em;*/
+    font-family: 'Roboto';
+    padding-bottom: 0.1em;
+    width: 10em;
+}
+.search form {
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    width: 100%;
+}
+.search form label {
+    font-family: Roboto;
+    font-weight: bold;
+}
+.search input[type=text], select {
+    width: 100%;
+    padding: 1em 0.8em;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+.search input[type=submit] {
+    width: 100%;
+    background-color: #af4c7e;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 0.3em;
+    margin-bottom: 0.8em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Roboto';
+}
+
+.search input[type=submit]:hover {
+    background-color: #b90626;
+}
+
+.search .col {
+    padding: 0 0 1em 0.7em;
+    font-size: 1em;
+}
+/*
+weight history
+ */
+.weight-history {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 1em 0 1em 0;
+    /*position: absolute;
+    top: 22em;
+    right: 14em;*/
+    width: 36em; /*34.1em;*/
+}
+#weight-measurements tr:nth-child(even) {
+    background-color: white;
+}
+.weight-history .container {
+    width: 100%;
+}
+.weight-history .th {
+    text-align: left;
+    padding: 0 1em 0.5em 0.7em;
+    font-family: 'Roboto';
+}
+.weight-history .col {
+    padding: 0 1em 0.1em 0.7em;
+    font-family: 'Roboto';
+    font-size: 1em;
+}
+.weight-history .col {
+    width: 100%;
+}
+
+/*
+account
+ */
+
+.account {
+    border-radius: 5px;
+    background-color: #f1e4ff;
+    padding: 1em 0 1em 0;
+    /*position: absolute;
+    top: 22em;
+    right: 4em;*/
+    font-family: 'Roboto';
+    padding-bottom: 0.1em;
+}
+
+.account .col {
+    padding: 0 0 1em 0.7em;
+    font-size: 1em;
+}
+.account form {
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+.account input[type=button] {
+    width: 100%;
+    background-color: #af4c7e;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Roboto';
+}
+
+.account input[type=submit]:hover {
+    background-color: #b90626;
+}
+
+/*
+account created inputfields
+ */
+#account-tbody input[type=text] {
+    width: 95%;
+    padding: 0.5em 0.5em;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
