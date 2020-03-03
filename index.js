@@ -22,20 +22,17 @@ connection.connect(function(err) {
     //MEASUREMENTS
     app.get('/measures/:userId', function (req, res) { //Hae käyttäjän 1 mittaukset
         var userId = req.params.userId;
-        console.log(userId);
         connection.query("SELECT * FROM measures WHERE UserId = ?", [userId], function (err, result, fields) {
             if (err) throw err;
             res.send(result);
         });
     });
-    //https://stackoverflow.com/questions/37763764/set-id-in-put-method-nodejs
+
     app.post('/measures/:userId', function (req, res) { //Lisää uusi mittaus käyttäjälle 1
         var userId = req.params.userId;
         var d = new Date();
         var todayDate = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDay() //DATE '2020-02-27'
-        console.log("Päivä" + todayDate);
         var weightToday = req.body.weightToday;
-        console.log("wei" + weightToday);
         var userId = req.params.userId;
         connection.query("INSERT INTO measures (MeasureDate,Weight,UserId) VALUES (DATE ?,?,?);",
             [todayDate, weightToday, userId] , function (err, result, fields) {
@@ -46,7 +43,7 @@ connection.connect(function(err) {
     });
 
     //ACCOUNT
-    app.get('/myaccount/:userId', function (req, res) { //Hae käyttäjän 1 mittaukset
+    app.get('/myaccount/:userId', function (req, res) { //Hae käyttäjän 1 profiilitiedot
         var userId = req.params.userId;
         connection.query("SELECT * FROM users WHERE Id = ?", [userId], function (err, result, fields) {
             if (err) throw err;
@@ -73,13 +70,12 @@ connection.connect(function(err) {
 
     app.post('/users', function (req, res) { //Lisää uusi mittaus käyttäjälle 1
         var name = req.body.name;
-        console.log("NAme" + name);
         var height = req.body.height;
         var startingWeight = req.body.startingWeight;
         var targetWeight = req.body.targetWeight;
 
         connection.query("INSERT INTO users (UserName, Height, StartingWeight, TargetWeight) VALUES (?,?,?,?);",
-            [name.toString(), height, startingWeight, targetWeight] , function (err, result, fields) {
+            [name, height, startingWeight, targetWeight] , function (err, result, fields) {
                 if (err) throw err;
                 res.send();
                 console.log("new account was inserted: " + result);
