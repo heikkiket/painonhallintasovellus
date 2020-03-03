@@ -1,7 +1,29 @@
 'use strict';
 
+const router = new Router({
+	  mode: 'history',
+});
+
 function main() {
-    getMeasures();
+	  router.add('/', () => {
+        showTemplate("main-template", "app", {});
+        //getMeasures();
+	  });
+
+	  router.add('/login', () => {
+        console.log("hello!");
+	  });
+
+    router.addUriListener();
+
+	  router.navigateTo(window.location.pathname);
+
+    window.router = router;
+}
+
+function showTemplate(templateId, placeId) {
+    let tmpl = document.getElementById(templateId).innerHTML;
+    document.getElementById(placeId).innerHTML = tmpl;
 }
 
 function fetchResult(endpoint,callback) {
