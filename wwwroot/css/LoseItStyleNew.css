@@ -95,7 +95,7 @@ weight table
 /*
 navbar
  */
-.navbar {
+.own_navbar {
     width: 100%;
     overflow: auto;
     position: absolute;
@@ -104,7 +104,7 @@ navbar
     margin-top: 1em;
 }
 
-.navbar a {
+.own_navbar a {
     float: none;
     padding: 1.5em 1.2em 1.1em 0.8em;
     color: black;
@@ -118,7 +118,7 @@ navbar
     display: inline-block;
 }
 
-.navbar a:hover {
+.own_navbar a:hover {
     color: white;
     background-color: deeppink;
     border-radius: 100%;
