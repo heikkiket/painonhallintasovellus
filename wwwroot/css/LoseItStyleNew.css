@@ -11,7 +11,7 @@ body, html {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left top, right top;
-    height: 100%;
+    height: 500px;
 }
 img {
     width: 80%;

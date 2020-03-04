@@ -6,7 +6,7 @@ const router = new Router({
 
 function main() {
     router.add('/', () => {
-        showView("main-template", "app", {});
+        showView("main-view", "app", {});
         /*getMeasures();
         postMeasure();
         getMyAccount();

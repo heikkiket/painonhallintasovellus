@@ -4,7 +4,7 @@
 'use strict';
 
 function showView(viewId, placeId) {
-    let tmpl = document.getElementById(templateId).innerHTML;
+    let tmpl = document.getElementById(viewId).innerHTML;
     document.getElementById(placeId).innerHTML = tmpl;
 }
 
