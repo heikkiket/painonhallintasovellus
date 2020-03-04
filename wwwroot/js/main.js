@@ -6,7 +6,7 @@ const router = new Router({
 
 function main() {
     router.add('/', () => {
-    showTemplate("main-template", "app", {});
+        showView("main-template", "app", {});
         /*getMeasures();
         postMeasure();
         getMyAccount();
@@ -21,21 +21,6 @@ function main() {
     router.addUriListener();
     router.navigateTo(window.location.pathname);
     window.router = router;
-}
-
-function showTemplate(templateId, placeId) {
-    let tmpl = document.getElementById(templateId).innerHTML;
-    document.getElementById(placeId).innerHTML = tmpl;
-}
-
-function fetchResult(endpoint,callback) {
-    fetch(endpoint)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            callback(data);
-        });
 }
 
 function getMeasures() {
