@@ -9,7 +9,12 @@ function getMeasures() {
 }
 
 function postMeasure() {
-    fetchResult('POST','/measures/:userId',{},function (data) {
+
+    let form = document.forms.measureForm;
+    let weight = form.elements.weightToday.value;
+    let userId = 1;
+
+    fetchResult('POST','/measures/' + userId, {weightToday: weight} , function (data) {
     });
 }
 

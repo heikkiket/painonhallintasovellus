@@ -7,6 +7,7 @@ const router = new Router({
 function main() {
     router.add('/', () => {
         showView("main-view", "app", {});
+        showTemplate("weight-today-template", "weight-today-place", {});
         /*getMeasures();
         postMeasure();
         getMyAccount();
