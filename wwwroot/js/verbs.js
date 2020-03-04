@@ -1,7 +1,7 @@
 'use strict';
 
 function getMeasures() {
-    fetchResult('/measures/:userId', function (data) {
+    fetchResult('GET','/measures/:userId',{}, function (data) {
         let template = "<p>weight: <b><% this.Weight %></b> <% this.MeasureDate %> </p>";
         let contents = applyTemplate(template, data[0]);
         document.getElementById("app").innerHTML = contents;
@@ -9,12 +9,12 @@ function getMeasures() {
 }
 
 function postMeasure() {
-    fetchResult('/measures/:userId', function (data) {
+    fetchResult('POST','/measures/:userId',{},function (data) {
     });
 }
 
 function getMyAccount() {
-    fetchResult('/myaccount/:userId', function (data) {
+    fetchResult('GET','/myaccount/:userId',{},function (data) {
         let template = "<p>weight: <b><% this.Weight %></b> <% this.MeasureDate %> </p>";
         let contents = applyTemplate(template, data[0]);
         document.getElementById("app").innerHTML = contents;
@@ -22,11 +22,11 @@ function getMyAccount() {
 }
 
 function putMyAccount() {
-    fetchResult('/myaccount/:userId', function (data) {
+    fetchResult('PUT','/myaccount/:userId', {},function (data) {
     });
 }
 
 function postNewUser() {
-    fetchResult('/users', function (data) {
+    fetchResult('POST','/users', {},function (data) {
     });
 }

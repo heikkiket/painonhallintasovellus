@@ -16,12 +16,19 @@ function showTemplate(templateId, placeId, data) {
     document.getElementById(placeId).innerHTML = res;
 }
 
-function fetchResult(endpoint,callback) {
-    fetch(endpoint)
+function fetchResult(method,endpoint,data,callback) {
+    fetch(endpoint, {
+        method: method,
+        headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+    })
         .then((response) => {
             return response.json();
         })
-        .then((data) => {
-            callback(data);
+        .then((resdata) => {
+            callback(resdata);
         });
+
 }
