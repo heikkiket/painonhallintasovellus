@@ -68,10 +68,6 @@
                 <div class="weight-history" id="weight-history-place">
                 </div>
             </div>
-            <div class="col col-md">
-                <div class="account" id="account-place">
-                </div>
-            </div>
         </div>
     </div>
 
@@ -79,15 +75,32 @@
 </script>
 
         <script type="text/template" id="search-view">
-         <h1>Search</h1>
+         <h1>Lose<span class="red">!</span>t</h1>
+         <h1 class="h2-sub">Search</h1>
+         <div class="header-background">
+         </div>
         </script>
 
         <script type="text/template" id="history-view">
-         <h1>History</h1>
+         <h1>Lose<span class="red">!</span>t</h1>
+         <h1 class="h2-sub">History</h1>
+         <div class="header-background">
+         </div>
         </script>
 
         <script type="text/template" id="account-view">
-         <h1>Account info</h1>
+            <h1>Lose<span class="red">!</span>t</h1>
+            <h2 class="h2-sub">  Account info</h2>
+            <div class="header-background">
+            <div class="container input-history">
+             <div class="row">
+                <div class="col col-md">
+                    <div class="account" id="account-place">
+                    </div>
+                </div>
+             </div>
+            </div>
+            </div>
         </script>
 
         <script type="text/template" id="weight-today-template">
@@ -159,7 +172,7 @@
          <table id=\"account-table\">
             <tbody id=\"account-tbody\">
                 <tr><th>Name</th></tr>
-                <tr id=\"tr-name\"><td id=\"name\"><input type=\"text\" value=\"default\"> <% this.Name %></td></tr>
+                <tr id=\"tr-name\"><td id=\"name\"><% this.Name %></td></tr> <!--<input type=\"text\" value=\"default\"> -->
                 <tr><th>Height</th></tr>
                 <tr id=\"tr-height\"><td id=\"height\"><% this.Height %></td></tr>
                 <tr><th>Starting weight</th></tr>
