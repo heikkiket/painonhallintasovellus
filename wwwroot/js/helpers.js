@@ -17,13 +17,17 @@ function showTemplate(templateId, placeId, data) {
 }
 
 function fetchResult(method,endpoint,data,callback) {
-    fetch(endpoint, {
+    let init = {
         method: method,
         headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data)
-    })
+            'Content-Type': 'application/json',
+        }
+    }
+
+    if (method != 'GET') {
+        init.body = JSON.stringify(data);
+    }
+    fetch(endpoint, init)
         .then((response) => {
             return response.json();
         })
