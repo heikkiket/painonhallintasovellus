@@ -27,7 +27,8 @@ function postMeasure() {
 
     let form = document.forms.measureForm;
     let weight = form.elements.weightToday.value;
-    let userId = 1;
+
+    let userId = window.state.userId;
 
     fetchResult('POST','/measures/' + userId, {weightToday: weight} , function (data) {
     });

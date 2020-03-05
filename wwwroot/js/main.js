@@ -4,6 +4,12 @@ const router = new Router({
 	  mode: 'history',
 });
 
+const state = {
+    userId: 1
+};
+
+window.state = state;
+
 function main() {
     router.add('/', () => {
         showView("main-view", "app", {});
