@@ -15,6 +15,15 @@ function main() {
         postNewUser();*/
         getMeasures();
     });
+    router.add('/view/search', () => {
+        showView("search-view", "app", {});
+    });
+    router.add('/view/history', () => {
+        showView("history-view", "app", {});
+    });
+    router.add('/view/account', () => {
+        showView("account-view", "app", {});
+    });
 
     router.add('/login', () => {
         console.log("hello!");
