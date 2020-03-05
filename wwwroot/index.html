@@ -70,10 +70,10 @@
         </script>
 
         <script type="text/template" id="weight-today-template">
-         <form action="">
-            <label>Weight of today</label>
-            <input type="text" id="weight-today" name="weight-today" placeholder="Your current weight..">
-            <input type="submit" value="Save" onclick="saveMeasure()">
+         <form name=\"measureForm\" onsubmit=\"return false\">
+            <label>Weight of today
+            <input type=\"text\" id=\"weight-today\" name=\"weightToday\" placeholder=\"Your current weight..\"></label>
+            <input type=\"submit\" value=\"Save\" onclick=\"postMeasure()\">
          </form>
         </script>
 
