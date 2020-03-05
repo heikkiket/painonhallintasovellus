@@ -34,11 +34,14 @@ function postMeasure() {
 }
 
 function getMyAccount() {
-    fetchResult('GET','/myaccount/:userId',{},function (data) {
-        let template = "<p>weight: <b><% this.Weight %></b> <% this.MeasureDate %> </p>";
-        let contents = applyTemplate(template, data[0]);
-        document.getElementById("app").innerHTML = contents;
+    let userID = 1;
+    fetchResult('GET','/myaccount/'+ userID,{},function (data) {
+        console.log(data);
+        data = data[0];
+        showTemplate("account-table-template", "search-place", data);
     });
+    
+
 }
 
 function putMyAccount() {

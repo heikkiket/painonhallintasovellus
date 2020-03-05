@@ -9,9 +9,9 @@ function main() {
         showView("main-view", "app", {});
         showTemplate("weight-today-template", "weight-today-place", {});
         /*getMeasures();
-        postMeasure();
+        postMeasure();*/
         getMyAccount();
-        putMyAccount();
+        /*putMyAccount();
         postNewUser();*/
         getMeasures();
     });

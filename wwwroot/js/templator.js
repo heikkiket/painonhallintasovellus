@@ -1,5 +1,5 @@
 // This code is originally written by Krasimir Tsonev:
-https://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line
+// https://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line
 // I copied it here and swear, wrote every line through and tested by myself how it works.
 // Don't just copy-paste, learn how things are done ;)
 

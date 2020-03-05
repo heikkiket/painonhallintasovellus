@@ -136,40 +136,23 @@
 
     </table>
 </script>
-
-<script type="text/template" id="account-table-template">
-    <table id="account-table">
-        <tbody id="account-tbody">
-        <tr>
-            <th>Name</th>
-        </tr>
-        <tr id="tr-name">
-            <td id="name"><input type="text" value="default">John Doe</td>
-        </tr>
-        <tr>
-            <th>Height</th>
-        </tr>
-        <tr id="tr-height">
-            <td id="height">1.8</td>
-        </tr>
-        <tr>
-            <th>Starting weight</th>
-        </tr>
-        <tr id="tr-starting-weight">
-            <td id="starting-weight">200</td>
-        </tr>
-        <tr>
-            <th>Target weight</th>
-        </tr>
-        <tr id="tr-target-weight">
-            <td id="target-weight">299</td>
-        </tr>
-        </tbody>
-    </table>
-    <form action="">
-        <input type="button" value="Edit" onclick="handleAccount()"> <!-- Ja Save -->
-    </form>
-</script>
+        <script type="text/template" id="account-table-template">
+         <table id=\"account-table\">
+            <tbody id=\"account-tbody\">
+                <tr><th>Name</th></tr>
+                <tr id=\"tr-name\"><td id=\"name\"><input type=\"text\" value=\"default\"> <% this.Name %></td></tr>
+                <tr><th>Height</th></tr>
+                <tr id=\"tr-height\"><td id=\"height\"><% this.Height %></td></tr>
+                <tr><th>Starting weight</th></tr>
+                <tr id=\"tr-starting-weight\"><td id=\"starting-weight\"><% this.StartingWeight %></td></tr>
+                <tr><th>Target weight</th></tr>
+                <tr id=\"tr-target-weight\"><td id=\"target-weight\"><% this.TargetWeight %></td></tr>
+            </tbody>
+         </table>
+         <form action=\"\">
+            <input type=\"button\" value=\"Edit\" onclick=\"handleAccount()\"> <!-- Ja Save -->
+         </form>
+        </script>
 
 <script src="js/templator.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanilla-router@1.2.7/index.min.js" type="text/javascript"></script>
