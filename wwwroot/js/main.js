@@ -13,6 +13,7 @@ function main() {
         getMyAccount();
         putMyAccount();
         postNewUser();*/
+        getMeasures();
     });
 
     router.add('/login', () => {

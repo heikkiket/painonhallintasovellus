@@ -1,73 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Lose It</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/css/LoseItStyleNew.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto&effect=anaglyph|3d-float:900&,100display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <h1>Lose!t</h1>
-        <div id="app"></div>
+<head>
+    <meta charset="UTF-8">
+    <title>Lose It</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/LoseItStyleNew.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&effect=anaglyph|3d-float:900&,100display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>Lose!t</h1>
+<div id="app"></div>
 
-        <script type="text/template">
-            <h1>An example template with <% this.var %></h1>
-        </script>
+<script type="text/template">
+    <h1>An example template with <% this.var %></h1>
+</script>
 
-        <script type="text/template" id="main-view">
-            <h1>Lose<span class="red">!</span>t</h1>
-            <div class="header-background">
-                <h2 class="font-effect-anaglyph">Current weight</h2>
-                <div id="current-weight" class="current-weight left">58.9 kg</div>
-                <div class="container weight-table left-down">
-                    <div class="row weight-table-headers font-effect-anaglyph">
-                        <div class="col col-sm th">Weight loss</div>
-                        <div class="col-sm th">Total weight loss</div>
-                        <div class="col col-sm th">Previous weight</div>
-                        <div class="col col-sm th">Body index</div>
-                        <div class="col col-sm th">Still to lose</div>
-                    </div>
-                    <div class="row">
-                        <div class="col col-sm" id="weight-loss">4 kg</div>
-                        <div class="col col-sm" id="total-weight-loss">9 kg</div>
-                        <div class="col col-sm" id="previous-weight">60 kg</div>
-                        <div class="col col-sm" id="body-index">26</div>
-                        <div class="col col-sm" id="still-to-lose">39.9 kg</div>
-                    </div>
-                </div>
+<script type="text/template" id="main-view">
+    <h1>Lose<span class="red">!</span>t</h1>
+    <div class="header-background">
+        <h2 class="font-effect-anaglyph">Current weight</h2>
+        <div id="current-weight" class="current-weight left">58.9 kg</div>
+        <div class="container weight-table left-down">
+            <div class="row weight-table-headers font-effect-anaglyph">
+                <div class="col col-sm th">Weight loss</div>
+                <div class="col-sm th">Total weight loss</div>
+                <div class="col col-sm th">Previous weight</div>
+                <div class="col col-sm th">Body index</div>
+                <div class="col col-sm th">Still to lose</div>
             </div>
-            <div class="own_navbar">
-            <a class="active" href="#"><i class="fa fa-fw fa-home"></i>Home</a>
-            <a href="#"><i class="fa fa-fw fa-search"></i>Search</a>
-            <a href="#"><i class="fa fa-fw fa-envelope"></i>History</a>
-            <a href="#"><i class="fa fa-fw fa-user"></i>Account</a>
-            </div>
-
-            <div class="container input-history">
             <div class="row">
-                <div class="col col-md">
-                    <div class="weight-today-div" id="weight-today-place">
-                    </div>
-                </div>
-                <div class="col col-md">
-                    <div class="search" id="search-place">
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="weight-history" id="weight-history-place">
-                    </div>
-                </div>
-                <div class="col col-md">
-                    <div class="account" id="account-place">
-                    </div>
-                </div>
+                <div class="col col-sm" id="weight-loss">4 kg</div>
+                <div class="col col-sm" id="total-weight-loss">9 kg</div>
+                <div class="col col-sm" id="previous-weight">60 kg</div>
+                <div class="col col-sm" id="body-index">26</div>
+                <div class="col col-sm" id="still-to-lose">39.9 kg</div>
             </div>
-            </div>
+        </div>
+    </div>
+    <div class="own_navbar">
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i>Home</a>
+        <a href="#"><i class="fa fa-fw fa-search"></i>Search</a>
+        <a href="#"><i class="fa fa-fw fa-envelope"></i>History</a>
+        <a href="#"><i class="fa fa-fw fa-user"></i>Account</a>
+    </div>
 
-            <img src="/img/footer3.png" alt="Paris">
-        </script>
+    <div class="container input-history">
+        <div class="row">
+            <div class="col col-md">
+                <div class="weight-today-div" id="weight-today-place">
+                </div>
+            </div>
+            <div class="col col-md">
+                <div class="search" id="search-place">
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="weight-history" id="weight-history-place">
+                </div>
+            </div>
+            <div class="col col-md">
+                <div class="account" id="account-place">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img src="/img/footer3.png" alt="Paris">
+</script>
 
         <script type="text/template" id="weight-today-template">
          <form name=\"measureForm\" onsubmit=\"return false\">
@@ -77,89 +79,104 @@
          </form>
         </script>
 
-        <script type="text/template" id="search-template">
-         <form action="">
-            <label>Search by date</label>
-            <input type="text" id="weight-search" name="weight-search" placeholder="Date..">
-            <input type="submit" value="Search">
-         </form>
-         <table>
-            <tr><th>Date</th></tr>
-            <tr><td>12.12.2020</td></tr>
-            <tr><th>Weight</th></tr>
-            <tr><td>99.9</td></tr>
-            <tr><th>Weight loss</th></tr>
-            <tr><td>22.2</td></tr>
-            <tr><th>Total weight loss</th></tr>
-            <tr><td>22.2</td></tr>
-         </table>
-        </script>
+<script type="text/template" id="search-template">
+    <form action="">
+        <label>Search by date</label>
+        <input type="text" id="weight-search" name="weight-search" placeholder="Date..">
+        <input type="submit" value="Search">
+    </form>
+    <table>
+        <tr>
+            <th>Date</th>
+        </tr>
+        <tr>
+            <td>12.12.2020</td>
+        </tr>
+        <tr>
+            <th>Weight</th>
+        </tr>
+        <tr>
+            <td>99.9</td>
+        </tr>
+        <tr>
+            <th>Weight loss</th>
+        </tr>
+        <tr>
+            <td>22.2</td>
+        </tr>
+        <tr>
+            <th>Total weight loss</th>
+        </tr>
+        <tr>
+            <td>22.2</td>
+        </tr>
+    </table>
+</script>
 
-        <script type="text/template" id="weight-measures-template">
-         <table id="weight-measurements">
-            <tr>
-                <th>Date</th>
-                <th>Weight</th>
-                <th>Weight loss</th>
-                <th>Total weight loss</th>
-                <th>Body index</th>
-            </tr>
-            <!-- luodaan tr ja td ja uusin ylimmäiseksi -->
-            <tr class="weights">
-                <td>22.12.2020</td>
-                <td>55.5</td>
-                <td>22.2</td>
-                <td>22.2</td>
-                <td>22</td>
-            </tr>
-            <tr class="weights">
-                <td>22.12.2020</td>
-                <td>55.5</td>
-                <td>22.2</td>
-                <td>22.2</td>
-                <td>22</td>
-            </tr>
-            <tr class="weights">
-                <td>22.12.2020</td>
-                <td>55.5</td>
-                <td>22.2</td>
-                <td>22.2</td>
-                <td>22</td>
-            </tr>
-            <tr class="weights">
-                <td>22.12.2020</td>
-                <td>55.5</td>
-                <td>22.2</td>
-                <td>22.2</td>
-                <td>22</td>
-            </tr>
-         </table>
-        </script>
+<script type="text/template" id="weight-measures-template">
+    <table id=\"weight-measurements\">
+        <tr>
+            <th>Date</th>
+            <th>Weight</th>
+            <th>Weight loss</th>
+            <th>Total weight loss</th>
+            <th>Body index</th>
+        </tr>
+        <!-- luodaan tr ja td ja uusin ylimmäiseksi -->
 
-        <script type="text/template" id="account-table-template">
-         <table id="account-table">
-            <tbody id="account-tbody">
-                <tr><th>Name</th></tr>
-                <tr id="tr-name"><td id="name"><input type="text" value="default">John Doe</td></tr>
-                <tr><th>Height</th></tr>
-                <tr id="tr-height"><td id="height">1.8</td></tr>
-                <tr><th>Starting weight</th></tr>
-                <tr id="tr-starting-weight"><td id="starting-weight">200</td></tr>
-                <tr><th>Target weight</th></tr>
-                <tr id="tr-target-weight"><td id="target-weight">299</td></tr>
-            </tbody>
-         </table>
-         <form action="">
-            <input type="button" value="Edit" onclick="handleAccount()"> <!-- Ja Save -->
-         </form>
-        </script>
+        <% for (let item of Object.keys(this.data)) { %>
+        <tr class=\"weights\">
+            <td><% this.data[item] %></td>
+            <td><% item.Weight %></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <% } %>
 
-        <script src="js/templator.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vanilla-router@1.2.7/index.min.js" type="text/javascript"></script>
-        <script src="js/helpers.js"></script>
-        <script type="text/javascript" src="js/verbs.js"></script>
-        <script src="js/main.js"></script>
-        <script type="text/javascript">main()</script>
+    </table>
+</script>
 
-    </body>
+<script type="text/template" id="account-table-template">
+    <table id="account-table">
+        <tbody id="account-tbody">
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr id="tr-name">
+            <td id="name"><input type="text" value="default">John Doe</td>
+        </tr>
+        <tr>
+            <th>Height</th>
+        </tr>
+        <tr id="tr-height">
+            <td id="height">1.8</td>
+        </tr>
+        <tr>
+            <th>Starting weight</th>
+        </tr>
+        <tr id="tr-starting-weight">
+            <td id="starting-weight">200</td>
+        </tr>
+        <tr>
+            <th>Target weight</th>
+        </tr>
+        <tr id="tr-target-weight">
+            <td id="target-weight">299</td>
+        </tr>
+        </tbody>
+    </table>
+    <form action="">
+        <input type="button" value="Edit" onclick="handleAccount()"> <!-- Ja Save -->
+    </form>
+</script>
+
+<script src="js/templator.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-router@1.2.7/index.min.js" type="text/javascript"></script>
+<script src="js/helpers.js"></script>
+<script type="text/javascript" src="js/verbs.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">main()</script>
+
+</body>
 </html>
