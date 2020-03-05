@@ -1,6 +1,21 @@
 var mysql = require('mysql');
+
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 const express = require('express');
+
+const jwtHelper = require('./lib/jwt');
+
+const config = require('./config.json');
+
 const app = express();
+
+
+const hashPassword = (password) => {
+    const sha256 = crypto.createHash('sha256');
+    const hash = sha256.update(password).digest('base64');
+    return hash;
+};
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -11,7 +26,10 @@ var connection = mysql.createConnection({
 
 //public folder as root
 app.use(express.static('wwwroot'));
+//JSON parser
 app.use(express.json());
+//JWT middleware. Turn on to allow login.
+//app.use(jwtHelper());
 
 connection.connect(function(err) {
     if (err) throw err;
@@ -35,11 +53,11 @@ connection.connect(function(err) {
         var weightToday = req.body.weightToday;
         var userId = req.params.userId;
         connection.query("INSERT INTO measures (MeasureDate,Weight,UserId) VALUES (DATE ?,?,?);",
-            [todayDate, weightToday, userId] , function (err, result, fields) {
-            if (err) throw err;
-            res.send();
-            console.log("Measurement was inserted: " + result);
-        });
+                         [todayDate, weightToday, userId] , function (err, result, fields) {
+                             if (err) throw err;
+                             res.send();
+                             console.log("Measurement was inserted: " + result);
+                         });
     });
 
     //ACCOUNT
@@ -68,18 +86,46 @@ connection.connect(function(err) {
 
     });
 
-    app.post('/users', function (req, res) { //Lisää uusi mittaus käyttäjälle 1
+    // LOGIN:
+    app.post('/login', (req, res) => {
+        let username = req.body.username;
+        let password = req.body.password;
+
+        const hashedPassword = hashPassword(password);
+
+        connection.query("SELECT * from users WHERE (UserName = ? AND Password = ?)",
+                         [username, hashedPassword],
+                         (err, result, fields) => {
+                             if (err) throw err;
+                             if(result.length == 1) {
+                                 const token = jwt.sign({sub: result.Id}, config.secret);
+                                 const {Password, ...resultWithoutPassword} = result[0];
+                                 res.send({
+                                     token,
+                                     resultWithoutPassword
+                                 });
+                             } else {
+                                 res.status(403).send({Message: "Login failure"});
+                             }
+                         });
+    });
+
+    // USER CREATION
+    app.post('/users', function (req, res) {
         var name = req.body.name;
         var height = req.body.height;
         var startingWeight = req.body.startingWeight;
         var targetWeight = req.body.targetWeight;
+        let password = req.body.password;
+        let hashedPw = hashPassword(password);
 
-        connection.query("INSERT INTO users (UserName, Height, StartingWeight, TargetWeight) VALUES (?,?,?,?);",
-            [name, height, startingWeight, targetWeight] , function (err, result, fields) {
-                if (err) throw err;
-                res.send();
-                console.log("new account was inserted: " + result);
-            });
+        connection.query("INSERT INTO users (UserName, Password, Height, StartingWeight, TargetWeight) VALUES (?,?,?,?,?);",
+                         [name, hashedPw, height, startingWeight, targetWeight] , function (err, result, fields) {
+                             if (err) throw err;
+                             res.send();
+                             console.log("new account was inserted: " + result);
+                         });
+        res.send();
     });
 
     var server = app.listen(8081, function () {
