@@ -5,8 +5,14 @@ const router = new Router({
 });
 
 const state = {
-    userId: 1
+    userId: 1,
+    currentWeight: 58.9,
+    weightLoss: 4,
+    previousWeight:60,
+    bodyIndex:26,
+    stillToLose:39.9
 };
+
 
 window.state = state;
 
