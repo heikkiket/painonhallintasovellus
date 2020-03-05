@@ -35,11 +35,11 @@ function postMeasure() {
 }
 
 function getMyAccount() {
-    let userID = 1;
+    let userID = window.state.userId;
     fetchResult('GET','/myaccount/'+ userID,{},function (data) {
         console.log(data);
         data = data[0];
-        showTemplate("account-table-template", "search-place", data);
+        showTemplate("account-table-template", "account-place", data);
     });
     
 

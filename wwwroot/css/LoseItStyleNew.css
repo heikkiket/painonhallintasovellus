@@ -60,7 +60,15 @@ h2 {
 /*
 weight table
 */
-
+.h2-sub{
+    font-family: 'Roboto';
+    font-size: 4.3em;
+    font-weight: 900;
+    color: white;
+    position: absolute;
+    top: 1.2em;
+    left: 2.48em;
+}
 .weight-table {
     font-family: 'Roboto';
     font-size: 3em;

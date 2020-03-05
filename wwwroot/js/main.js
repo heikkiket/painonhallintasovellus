@@ -29,6 +29,7 @@ function main() {
     });
     router.add('/view/account', () => {
         showView("account-view", "app", {});
+        getMyAccount();
     });
 
     router.add('/login', () => {
