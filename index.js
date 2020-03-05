@@ -22,7 +22,7 @@ connection.connect(function(err) {
     //MEASUREMENTS
     app.get('/measures/:userId', function (req, res) { //Hae käyttäjän 1 mittaukset
         var userId = req.params.userId;
-        connection.query("SELECT * FROM measures WHERE UserId = ?", [userId], function (err, result, fields) {
+        connection.query("SELECT * FROM measures WHERE UserId = ? ORDER BY MeasureDate DESC", [userId], function (err, result, fields) {
             if (err) throw err;
             res.send(result);
         });
