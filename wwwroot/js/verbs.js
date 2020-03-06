@@ -34,18 +34,22 @@ function postMeasure() {
 
     let form = document.forms.measureForm;
     let weight = form.elements.weightToday.value;
-    let userId = 1;
+
+    let userId = window.state.userId;
 
     fetchResult('POST','/measures/' + userId, {weightToday: weight} , function (data) {
     });
 }
 
 function getMyAccount() {
-    fetchResult('GET','/myaccount/:userId',{},function (data) {
-        let template = "<p>weight: <b><% this.Weight %></b> <% this.MeasureDate %> </p>";
-        let contents = applyTemplate(template, data[0]);
-        document.getElementById("app").innerHTML = contents;
+    let userID = window.state.userId;
+    fetchResult('GET','/myaccount/'+ userID,{},function (data) {
+        console.log(data);
+        data = data[0];
+        showTemplate("account-table-template", "account-place", data);
     });
+    
+
 }
 
 function putMyAccount() {
