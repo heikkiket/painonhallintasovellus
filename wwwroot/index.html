@@ -124,13 +124,13 @@
         </tr>
         <!-- luodaan tr ja td ja uusin ylimmäiseksi -->
 
-        <% for (let item of Object.keys(this.data)) { %>
+        <% for (let item of this.data) { %>
         <tr class=\"weights\">
-            <td><% this.data[item] %></td>
+            <td><% item.MeasureDate %></td>
             <td><% item.Weight %></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><% item.WeightLoss %></td>
+            <td><% item.TotalWeightLoss %></td>
+            <td><% item.BodyIndex %></td>
         </tr>
         <% } %>
 
