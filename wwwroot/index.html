@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Lose It</title>
+<head>
+    <meta charset="UTF-8">
+    <title>Lose It</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/css/LoseItStyleNew.css">
+    <link rel="stylesheet" type="text/css" href="/css/LoseItStyleNew.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&effect=anaglyph|3d-float:900&,100display=swap"
           rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div class="own_navbar">
-            <a class="active" href="#" onclick="window.router.navigateTo('/')">
-                <i class="fa fa-fw fa-home"></i>Home
-            </a>
-            <a href="#" onclick="window.router.navigateTo('/view/search')">
-                <i class="fa fa-fw fa-search"></i>Search
-            </a>
-            <a href="#" onclick="window.router.navigateTo('/view/history')">
-                <i class="fa fa-fw fa-envelope"></i>History
-            </a>
-            <a href="#" onclick="window.router.navigateTo('/view/account')">
-                <i class="fa fa-fw fa-user"></i>Account
-            </a>
-        </div>
-        <div id="app"></div>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="own_navbar">
+    <a class="active" href="#" onclick="window.router.navigateTo('/')">
+        <i class="fa fa-fw fa-home"></i>Home
+    </a>
+    <a href="#" onclick="window.router.navigateTo('/view/search')">
+        <i class="fa fa-fw fa-search"></i>Search
+    </a>
+    <a href="#" onclick="window.router.navigateTo('/view/history')">
+        <i class="fa fa-fw fa-envelope"></i>History
+    </a>
+    <a href="#" onclick="window.router.navigateTo('/view/account')">
+        <i class="fa fa-fw fa-user"></i>Account
+    </a>
+</div>
+<div id="app"></div>
 
 <script type="text/template">
     <h1>An example template with <% this.var %></h1>
@@ -44,15 +44,15 @@
                 <div class="col col-sm th">Body index</div>
                 <div class="col col-sm th">Still to lose</div>
             </div>
-                    <div class="row">
-                        <div class="col col-sm" id="weight-loss">4 kg</div>
-                        <div class="col col-sm" id="total-weight-loss">9 kg</div>
-                        <div class="col col-sm" id="previous-weight">60 kg</div>
-                        <div class="col col-sm" id="body-index">26</div>
-                        <div class="col col-sm" id="still-to-lose">39.9 kg</div>
+            <div class="row">
+                <div class="col col-sm" id="weight-loss">4 kg</div>
+                <div class="col col-sm" id="total-weight-loss">9 kg</div>
+                <div class="col col-sm" id="previous-weight">60 kg</div>
+                <div class="col col-sm" id="body-index">26</div>
+                <div class="col col-sm" id="still-to-lose">39.9 kg</div>
             </div>
-                </div>
-            </div>
+        </div>
+    </div>
 
     <div class="container input-history">
         <div class="row">
@@ -74,42 +74,42 @@
     <img src="/img/footer3.png" alt="Paris">
 </script>
 
-        <script type="text/template" id="search-view">
-         <h1>Lose<span class="red">!</span>t</h1>
-         <h1 class="h2-sub">Search</h1>
-         <div class="header-background">
-         </div>
-        </script>
+<script type="text/template" id="search-view">
+    <h1>Lose<span class="red">!</span>t</h1>
+    <h1 class="h2-sub">Search</h1>
+    <div class="header-background">
+    </div>
+</script>
 
-        <script type="text/template" id="history-view">
-         <h1>Lose<span class="red">!</span>t</h1>
-         <h1 class="h2-sub">History</h1>
-         <div class="header-background">
-         </div>
-        </script>
+<script type="text/template" id="history-view">
+    <h1>Lose<span class="red">!</span>t</h1>
+    <h1 class="h2-sub">History</h1>
+    <div class="header-background">
+    </div>
+</script>
 
-        <script type="text/template" id="account-view">
-            <h1>Lose<span class="red">!</span>t</h1>
-            <h2 class="h2-sub">  Account info</h2>
-            <div class="header-background">
-            <div class="container input-history">
-             <div class="row">
+<script type="text/template" id="account-view">
+    <h1>Lose<span class="red">!</span>t</h1>
+    <h2 class="h2-sub"> Account info</h2>
+    <div class="header-background">
+        <div class="container input-history">
+            <div class="row">
                 <div class="col col-md">
                     <div class="account" id="account-place">
                     </div>
                 </div>
-             </div>
             </div>
-            </div>
-        </script>
+        </div>
+    </div>
+</script>
 
-        <script type="text/template" id="weight-today-template">
-         <form name=\"measureForm\" onsubmit=\"return false\">
-            <label>Weight of today
-            <input type=\"text\" id=\"weight-today\" name=\"weightToday\" placeholder=\"Your current weight..\"></label>
-            <input type=\"submit\" value=\"Save\" onclick=\"postMeasure()\">
-         </form>
-        </script>
+<script type="text/template" id="weight-today-template">
+    <form name=\"measureForm\" onsubmit=\"return false\">
+    <label>Weight of today
+        <input type=\"text\" id=\"weight-today\" name=\"weightToday\" placeholder=\"Your current weight..\"></label>
+    <input type=\"submit\" value=\"Save\" onclick=\"postMeasure()\">
+    </form>
+</script>
 
 <script type="text/template" id="search-template">
     <form action="">
@@ -168,23 +168,39 @@
 
     </table>
 </script>
-        <script type="text/template" id="account-table-template">
-         <table id=\"account-table\">
-            <tbody id=\"account-tbody\">
-                <tr><th>Name</th></tr>
-                <tr id=\"tr-name\"><td id=\"name\"><% this.Name %></td></tr> <!--<input type=\"text\" value=\"default\"> -->
-                <tr><th>Height</th></tr>
-                <tr id=\"tr-height\"><td id=\"height\"><% this.Height %></td></tr>
-                <tr><th>Starting weight</th></tr>
-                <tr id=\"tr-starting-weight\"><td id=\"starting-weight\"><% this.StartingWeight %></td></tr>
-                <tr><th>Target weight</th></tr>
-                <tr id=\"tr-target-weight\"><td id=\"target-weight\"><% this.TargetWeight %></td></tr>
-            </tbody>
-         </table>
-         <form action=\"\">
-            <input type=\"button\" value=\"Edit\" onclick=\"handleAccount()\"> <!-- Ja Save -->
-         </form>
-        </script>
+<script type="text/template" id="account-table-template">
+    <table id=\"account-table\">
+        <tbody id=\"account-tbody\">
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr id=\"tr-name\">
+            <td id=\"name\"><% this.Name %></td>
+        </tr> <!--<input type=\"text\" value=\"default\"> -->
+        <tr>
+            <th>Height</th>
+        </tr>
+        <tr id=\"tr-height\">
+            <td id=\"height\"><% this.Height %></td>
+        </tr>
+        <tr>
+            <th>Starting weight</th>
+        </tr>
+        <tr id=\"tr-starting-weight\">
+            <td id=\"starting-weight\"><% this.StartingWeight %></td>
+        </tr>
+        <tr>
+            <th>Target weight</th>
+        </tr>
+        <tr id=\"tr-target-weight\">
+            <td id=\"target-weight\"><% this.TargetWeight %></td>
+        </tr>
+        </tbody>
+    </table>
+    <form action=\"\">
+        <input type=\"button\" value=\"Edit\" onclick=\"handleAccount()\"> <!-- Ja Save -->
+    </form>
+</script>
 
 <script src="js/templator.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanilla-router@1.2.7/index.min.js" type="text/javascript"></script>

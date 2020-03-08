@@ -13,7 +13,6 @@ const state = {
     stillToLose:39.9
 };
 
-
 window.state = state;
 
 function main() {
@@ -26,6 +25,7 @@ function main() {
         /*putMyAccount();
         postNewUser();*/
         getMeasures();
+        getMeasuresHeader();
     });
     router.add('/view/search', () => {
         showView("search-view", "app", {});
