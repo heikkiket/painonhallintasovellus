@@ -21,7 +21,6 @@ function getMeasures() {
             prevWeight = data[i].Weight;
         }
 
-        console.log(data);
         showTemplate("weight-measures-template","weight-history-place", {data: data });
     });
 }
@@ -69,7 +68,6 @@ function postMeasure() {
 function getMyAccount() {
     let userID = window.state.userId;
     fetchResult('GET','/myaccount/'+ userID,{},function (data) {
-        console.log(data);
         data = data[0];
         showTemplate("account-table-template", "account-place", data);
     });

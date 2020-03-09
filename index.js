@@ -33,8 +33,8 @@ app.use(express.json());
 
 connection.connect(function(err) {
     if (err) throw err;
-    app.get('/', function (req, res) {
-        res.sendFile('index.html');
+    app.get(['/', '/view/:view'], function (req, res) {
+        res.sendFile(__dirname + '/wwwroot/index.html');
     });
 
     //MEASUREMENTS

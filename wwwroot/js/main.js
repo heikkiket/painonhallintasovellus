@@ -5,19 +5,21 @@ const router = new Router({
 });
 
 const state = {
-    userId: 1,
+    userId: null,
     currentWeight: 58.9,
     weightLoss: 4,
-    previousWeight:60,
+    previousWeight: 60,
     bodyIndex:26,
-    stillToLose:39.9
+    stillToLose:39.9,
+    token: null
 };
 
 window.state = state;
 
 function main() {
+
     router.add('/', () => {
-        showView("main-view", "app", {});
+        showView("main-view");
         showTemplate("weight-today-template", "weight-today-place", {});
         /*getMeasures();
         postMeasure();*/
@@ -28,21 +30,30 @@ function main() {
         getMeasuresHeader();
     });
     router.add('/view/search', () => {
-        showView("search-view", "app", {});
+        showView("search-view");
     });
     router.add('/view/history', () => {
-        showView("history-view", "app", {});
+        showView("history-view");
     });
     router.add('/view/account', () => {
-        showView("account-view", "app", {});
+        showView("account-view");
         getMyAccount();
     });
 
-    router.add('/login', () => {
-        console.log("hello!");
+    router.add('/view/login', () => {
+        showView("login-view");
     });
 
     router.addUriListener();
     router.navigateTo(window.location.pathname);
     window.router = router;
+
+    renderMenu();
 }
+
+function renderMenu() {
+    let logged = loggedin();
+    showTemplate("menu-template", "menu-place", {loggedin: logged});
+}
+
+main();

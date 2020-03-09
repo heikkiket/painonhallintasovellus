@@ -11,24 +11,39 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="own_navbar">
-    <a class="active" href="#" onclick="window.router.navigateTo('/')">
-        <i class="fa fa-fw fa-home"></i>Home
-    </a>
-    <a href="#" onclick="window.router.navigateTo('/view/search')">
-        <i class="fa fa-fw fa-search"></i>Search
-    </a>
-    <a href="#" onclick="window.router.navigateTo('/view/history')">
-        <i class="fa fa-fw fa-envelope"></i>History
-    </a>
-    <a href="#" onclick="window.router.navigateTo('/view/account')">
-        <i class="fa fa-fw fa-user"></i>Account
-    </a>
+<div id="menu-place" class="own_navbar">
 </div>
+
 <div id="app"></div>
 
 <script type="text/template">
     <h1>An example template with <% this.var %></h1>
+</script>
+
+<script type="text/template" id="menu-template">
+    <a href=\"#\" onclick=\"navigateMenu(this,'/')\">
+        <i class=\"fa fa-fw fa-home\"></i>Home
+    </a>
+    <a href=\"#\" onclick=\"navigateMenu(this, 'view/search')\">
+        <i class=\"fa fa-fw fa-search\"></i>Search
+    </a>
+    <a href=\"#\" onclick=\"navigateMenu(this, 'view/history')\">
+        <i class=\"fa fa-fw fa-envelope\"></i>History
+    </a>
+    <% if(this.loggedin) { %>
+        <a href=\"#\" onclick=\"navigateMenu(this, 'view/account')\">
+            <i class=\"fa fa-fw fa-user\"></i>Account
+        </a>
+        <a href=\"#\" onclick=\"userLogout()\">
+            <i class=\"fa fa-fw fa-user\"></i>logout
+        </a>
+    <% } else { %>
+
+        <a href=\"#\" onclick=\"navigateMenu(this, 'view/login')\">
+            <i class=\"fa fa-fw fa-user\"></i>login
+        </a>
+
+    <% } %>
 </script>
 
 <script type="text/template" id="main-view">
@@ -168,6 +183,28 @@
 
     </table>
 </script>
+
+<script type="text/template" id="login-view">
+    <h1 class="h2-sub">Login</h1>
+    <div class="header-background">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md">
+                <form name="loginForm" onsubmit="return false">
+                    <label>Käyttäjätunnus
+                        <input name="username" type="text">
+                    </label>
+                    <label>Salasana
+                        <input name="password" type="password">
+                    </label>
+                    <input type="submit" value="Kirjaudu" onclick="login()">
+                </form>
+            </div>
+        </div>
+    </div>
+</script>
+
 <script type="text/template" id="account-table-template">
     <table id=\"account-table\">
         <tbody id=\"account-tbody\">
@@ -202,12 +239,12 @@
     </form>
 </script>
 
-<script src="js/templator.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanilla-router@1.2.7/index.min.js" type="text/javascript"></script>
-<script src="js/helpers.js"></script>
-<script type="text/javascript" src="js/verbs.js"></script>
-<script src="js/main.js"></script>
-<script type="text/javascript">main()</script>
+<script defer src="/js/templator.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/vanilla-router@1.2.7/index.min.js" type="text/javascript"></script>
+<script defer src="/js/user.js"></script>
+<script defer src="/js/helpers.js"></script>
+<script defer src="/js/verbs.js"></script>
+<script defer src="/js/main.js"></script>
 
 </body>
 </html>

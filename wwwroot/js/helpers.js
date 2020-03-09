@@ -3,9 +3,9 @@
   */
 'use strict';
 
-function showView(viewId, placeId) {
+function showView(viewId) {
     let tmpl = document.getElementById(viewId).innerHTML;
-    document.getElementById(placeId).innerHTML = tmpl;
+    document.getElementById("app").innerHTML = tmpl;
 }
 
 
@@ -22,7 +22,9 @@ function fetchResult(method,endpoint,data,callback) {
         headers: {
             'Content-Type': 'application/json',
         }
-    }
+    };
+
+    init.headers.Authorization = loginToken();
 
     if (method != 'GET') {
         init.body = JSON.stringify(data);
@@ -35,4 +37,16 @@ function fetchResult(method,endpoint,data,callback) {
             callback(resdata);
         });
 
+}
+
+function navigateMenu(target, path) {
+    window.router.navigateTo(path);
+
+    for(const item of document.getElementById("menu-place")
+              .getElementsByClassName('active')
+       ) {
+        item.className="";
+    }
+
+    target.className="active";
 }
