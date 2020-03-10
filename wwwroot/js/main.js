@@ -17,28 +17,44 @@ window.state = state;
 
 function main() {
 
-    router.add('/', () => {
-        showView("main-view");
-        showTemplate("weight-today-template", "weight-today-place", {});
-        getMyAccount();
-        getMeasuresHeader();
-    });
-    router.add('/view/history', () => {
-        showView("history-view");
-        getMeasures();
-    });
-    router.add('/view/account', () => {
-        showView("account-view");
-        getMyAccount();
-    });
+    window.router = router;
 
     router.add('/view/login', () => {
         showView("login-view");
     });
 
+    router.add('/', () => {
+        if(!loggedin()) {
+            showView('login-view');
+        } else {
+            showView("main-view");
+
+            let name = window.state.accountInfo.UserName;
+            showTemplate("weight-today-template", "weight-today-place", {name});
+            getMyAccount();
+            getMeasuresHeader();
+        }
+    });
+    router.add('/view/history', () => {
+        if(!loggedin()) {
+            showView('login-view');
+        } else {
+            showView("history-view");
+            getMeasures();
+        }
+    });
+    router.add('/view/account', () => {
+        if(!loggedin()) {
+            showView('login-view');
+        } else {
+            showView("account-view");
+            getMyAccount();
+        }
+    });
+
+
     router.addUriListener();
     router.navigateTo(window.location.pathname);
-    window.router = router;
 
     renderMenu();
 }
