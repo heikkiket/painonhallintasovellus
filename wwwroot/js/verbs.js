@@ -106,6 +106,5 @@ function countResults(data) {
         data[i].MeasureDate = data[i].MeasureDate.toLocaleDateString();
         prevWeight = data[i].Weight;
     }
-    console.log("data" + data);
     return {last, beforeLast, first, data};
 }

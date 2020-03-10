@@ -25,16 +25,16 @@
 </script>
 
 <script type="text/template" id="menu-template">
-    <a href=\"#\" onclick=\"navigateMenu(this,'/')\">
-        <i class=\"fa fa-fw fa-home\"></i>Home
-    </a>
-    <a href=\"#\" onclick=\"navigateMenu(this, 'view/search')\">
-        <i class=\"fa fa-fw fa-search\"></i>Search
-    </a>
-    <a href=\"#\" onclick=\"navigateMenu(this, 'view/history')\">
-        <i class=\"fa fa-fw fa-envelope\"></i>History
-    </a>
     <% if(this.loggedin) { %>
+        <a href=\"#\" onclick=\"navigateMenu(this,'/')\">
+            <i class=\"fa fa-fw fa-home\"></i>Home
+        </a>
+        <a href=\"#\" onclick=\"navigateMenu(this, 'view/search')\">
+            <i class=\"fa fa-fw fa-search\"></i>Search
+        </a>
+        <a href=\"#\" onclick=\"navigateMenu(this, 'view/history')\">
+            <i class=\"fa fa-fw fa-envelope\"></i>History
+        </a>
         <a href=\"#\" onclick=\"navigateMenu(this, 'view/account')\">
             <i class=\"fa fa-fw fa-user\"></i>Account
         </a>
@@ -53,7 +53,7 @@
 <script type="text/template" id="main-view">
         <div class="row">
             <div class="col col-12-md">
-                <div class="weight-today-div" id="weight-today-place">
+                <div class="loseit-box" id="weight-today-place">
                 </div>
             </div>
         </div>
@@ -62,15 +62,11 @@
 </script>
 
 <script type="text/template" id="search-view">
-    <h1>Lose<span class="red">!</span>t</h1>
     <h1 class="h2-sub">Search</h1>
-    </div>
 </script>
 
 <script type="text/template" id="history-view">
-    <h1>Lose<span class="red">!</span>t</h1>
     <h1 class="h2-sub">History</h1>
-    </div>
     <div class="col-md">
         <div class="weight-history" id="weight-history-place">
         </div>
@@ -78,17 +74,13 @@
 </script>
 
 <script type="text/template" id="account-view">
-    <h1>Lose<span class="red">!</span>t</h1>
     <h2 class="h2-sub"> Account info</h2>
-        <div class="container view-container">
-            <div class="row">
-                <div class="col col-md">
-                    <div class="account" id="account-place">
-                    </div>
+        <div class="row">
+            <div class="col col-md">
+                <div class="loseit-box" id="account-place">
                 </div>
             </div>
         </div>
-    </div>
 </script>
 
 <script type="text/template" id="weight-today-template">
@@ -232,7 +224,7 @@
         </tbody>
     </table>
     <form action=\"\">
-        <input type=\"button\" value=\"Edit\" onclick=\"editAccount()\"> <!-- Ja Save -->
+        <input class=\"basicButton\" type=\"button\" value=\"Edit\" onclick=\"editAccount()\"> <!-- Ja Save -->
     </form>
 </script>
 
@@ -258,17 +250,20 @@
                 <th>Starting weight</th>
             </tr>
             <tr id=\"tr-starting-weight\">
-                <td id=\"starting-weight\"><% this.StartingWeight %></td>
+                <td id=\"starting-weight\"><input type=\"number\"
+                    name=\"StartingWeight\"
+                    value=\"<% this.StartingWeight %>\"></td>
             </tr>
             <tr>
                 <th>Target weight</th>
             </tr>
             <tr id=\"tr-target-weight\">
-                <td id=\"target-weight\"><input type=\"number\" name=\"targetWeight\" value=\"<% this.TargetWeight %>\"></td>
+                <td id=\"target-weight\"><input type=\"number\" name=\"TargetWeight\" value=\"<% this.TargetWeight %>\"></td>
             </tr>
             </tbody>
         </table>
-        <input type=\"button\" value=\"save\" onclick=\"saveAccount()\"> 
+        <input type=\"button\" class=\"basicButton\" value=\"Save\" onclick=\"saveAccount()\"> 
+        <input type=\"button\" class=\"basicButton secondaryButton\" value=\"Cancel\" onclick=\"getMyAccount()\"> 
     </form>
 </script>
 
