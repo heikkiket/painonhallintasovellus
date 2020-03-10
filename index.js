@@ -29,12 +29,25 @@ app.use(express.static('wwwroot'));
 //JSON parser
 app.use(express.json());
 //JWT middleware. Turn on to allow login.
-//app.use(jwtHelper());
+app.use(jwtHelper());
+
+app.use(function (err, req, res, next) {
+    if (err.name === 'UnauthorizedError') {
+        res.append('Content-Type', 'application/json');
+        res.status(401).send({error: 'Invalid token.'});
+    }
+});
+
+app.use((req, res, next) => {
+    res.append('Content-type', 'application/json');
+    next();
+});
 
 connection.connect(function(err) {
     if (err) throw err;
     app.get(['/', '/view/:view'], function (req, res) {
-        res.sendFile(__dirname + '/wwwroot/index.html');
+        let headers = {'Content-Type': 'text/html'};
+        res.sendFile(__dirname + '/wwwroot/index.html', {headers});
     });
 
     //MEASUREMENTS
@@ -112,6 +125,7 @@ connection.connect(function(err) {
 
     // USER CREATION
     app.post('/users', function (req, res) {
+        console.log("Creating user");
         var name = req.body.name;
         var height = req.body.height;
         var startingWeight = req.body.startingWeight;
