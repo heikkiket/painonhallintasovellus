@@ -20,12 +20,7 @@ function main() {
     router.add('/', () => {
         showView("main-view");
         showTemplate("weight-today-template", "weight-today-place", {});
-        /*getMeasures();
-        postMeasure();*/
         getMyAccount();
-        /*putMyAccount();
-        postNewUser();*/
-        getMeasures();
         getMeasuresHeader();
     });
     router.add('/view/search', () => {
@@ -33,6 +28,7 @@ function main() {
     });
     router.add('/view/history', () => {
         showView("history-view");
+        getMeasures();
     });
     router.add('/view/account', () => {
         showView("account-view");
