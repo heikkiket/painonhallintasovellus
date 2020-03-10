@@ -7,7 +7,7 @@ body, html {
 }
 
 .header-background {
-    background-image: url("../img/LoseItThinner3.png");
+    background-image: url("/img/LoseItThinner3.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left top, right top;
@@ -76,24 +76,12 @@ weight table
     text-align: left;
 }
 
-.container div:nth-child(1) div:nth-child(1){
-    padding-top: 2.6em;
+.weight-table {
+    padding-top: 1rem;
 }
 
-.container div:nth-child(1) .col{
-    padding-top: 6.5em;
-}
-
-.container div:nth-child(2) div:nth-child(1){
-    padding-top: 0em;
-}
-.container div:nth-child(2) .col{
-    padding-top: 0em;
-}
-
-.container div:nth-child(2) div:nth-child(1){
+#weight-header-place .container div:nth-child(2) div:nth-child(1){
     font-size: 2em;
-    margin-top: -0.6em;
 }
 
 /*
