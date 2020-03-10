@@ -17,9 +17,7 @@ img {
     width: 80%;
     /*margin-left: -15em;*/
     margin-bottom: 0;
-    position: absolute;
-    top: 44em;
-    left: 10em;
+
     z-index: -1000;
 }
 .current-weight {
@@ -29,18 +27,15 @@ img {
     color: white;
 }
 .left {
-    position: absolute;
-    top: 0.65em;
-    left: 0.5em;
+
 }
 
 h1 {
     font-family: 'Roboto';
     font-size: 1.4em;
     font-weight: bold;
-    position: absolute;
-    top: -0.3em;
-    right: 0.6em;
+
+
 }
 .red {
     color: red;
@@ -52,9 +47,7 @@ h2 {
     font-size: 1.3em;
     font-weight: 900;
     color: white;
-    position: absolute;
-    top: 1.2em;
-    left: 2.48em;
+
 }
 
 .h2-sub{
@@ -62,9 +55,7 @@ h2 {
     font-size: 4.3em;
     font-weight: 900;
     color: white;
-    position: absolute;
-    top: 1.2em;
-    left: 2.48em;
+
 }
 
 /*
@@ -78,9 +69,7 @@ weight table
     color: white;
 }
 .left-down {
-    position: absolute;
-    top: 1.9em;
-    left: 7.8em;
+
     /*top: 3.2em;
     left: 0.7em;*/
 }
@@ -108,8 +97,7 @@ navbar
 .own_navbar {
     width: 100%;
     overflow: auto;
-    position: absolute;
-    top: 15.5em;
+
     text-align: center;
     margin-top: 1em;
 }
@@ -143,8 +131,7 @@ navbar
 input history table
  */
 .input-history {
-    position: absolute;
-    top: 22em;
+
     padding-left: 2em;
     padding-right: 2em;
     left: 50%;
