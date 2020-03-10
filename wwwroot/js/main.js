@@ -6,11 +6,9 @@ const router = new Router({
 
 const state = {
     userId: null,
-    currentWeight: 58.9,
-    weightLoss: 4,
-    previousWeight: 60,
-    bodyIndex:26,
-    stillToLose:39.9,
+    currentWeight: null,
+    height: null,
+    targetWeight: null,
     token: null
 };
 

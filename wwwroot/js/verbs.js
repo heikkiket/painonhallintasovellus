@@ -1,56 +1,30 @@
 'use strict';
 
-let height = 1.60;  //Hae tietokannasta!!
-let startingWeight = 100;   //Hae tietokannasta!!
-
 function getMeasures() {
-    let userId = 2; //KOVAKOODATTU!!
+    let userId = window.state.userId;
     fetchResult('GET','/measures/'+userId,{}, function (data) {
+        let results = countResults(data);
 
-        let prevWeight = startingWeight;
-        let originalPrevWeight = startingWeight;
-        let i;
-
-        for (i = data.length - 1; i >= 0  ; i--) {
-
-            data[i].MeasureDate = (data[i].MeasureDate.substr(0,10)).split("-").reverse().join("-");
-            data[i].WeightLoss = (prevWeight - data[i].Weight).toFixed(1);  //TOIMII VÄÄRIN!!!!!!!
-            data[i].TotalWeightLoss = (data[i].Weight - originalPrevWeight).toFixed(1);
-            data[i].BodyIndex = (data[i].Weight / height / height).toFixed(1);
-
-            prevWeight = data[i].Weight;
-        }
-
-        showTemplate("weight-measures-template","weight-history-place", {data: data });
+        showTemplate("weight-measures-template","weight-history-place", {data: results.data });
     });
 }
 function getMeasuresHeader() {
-    let userId = 2; //KOVAKOODATTU
+    let userId = window.state.userId;
     fetchResult('GET','/measures/'+userId,{}, function (data) {
-        let originalPrevWeight = startingWeight;
-        //startingWeight pitää ottaa myös huomioon!!!!
+        let results = countResults(data);
+        
+        let {last,beforeLast,first} = results;
 
-        if (data.length > 1) {
-            document.getElementById("current-weight").innerHTML = data[data.length - 1].Weight + " kg";
-            document.getElementById("weight-loss").innerHTML = (data[data.length - 1].Weight - data[data.length - 2].Weight).toFixed(1) + " kg";
-            document.getElementById("total-weight-loss").innerHTML = (data[data.length - 1].Weight - originalPrevWeight).toFixed(1) + " kg";
-            document.getElementById("body-index").innerHTML = (data[data.length - 1].Weight / height / height).toFixed(1);
-            document.getElementById("still-to-lose").innerHTML = originalPrevWeight - data[data.length - 1].Weight + " kg";
-        }
-        else if (data.length == 1) {
-            document.getElementById("current-weight").innerHTML = data[data.length - 1].Weight + " kg";
-            document.getElementById("weight-loss").innerHTML = 0 + " kg";
-            document.getElementById("total-weight-loss").innerHTML = 0 + " kg";
-            document.getElementById("body-index").innerHTML = (data[data.length - 1].Weight / height / height).toFixed(1);
-            document.getElementById("still-to-lose").innerHTML = originalPrevWeight + " kg";
-        }
-        else {
-            document.getElementById("current-weight").innerHTML = "- kg";
-            document.getElementById("weight-loss").innerHTML = "- kg";
-            document.getElementById("total-weight-loss").innerHTML = "- kg";
-            document.getElementById("body-index").innerHTML = "- kg";
-            document.getElementById("still-to-lose").innerHTML = "- kg";
-        }
+        let displayData = {
+            currentWeight: last.Weight,
+            weightLoss: (last.Weight - beforeLast.Weight).toFixed(1),
+            totalWeightLoss: (last.Weight - first.Weight).toFixed(1),
+            prevWeight: beforeLast.Weight,
+            bodyIndex: bodyIndex(last.Weight,window.state.height).toFixed(1),
+            stillToLose: (last.Weight - window.state.targetWeight).toFixed(1)
+        };
+
+        showTemplate("weight-header-template","weight-header-place",displayData);
     });
 }
 
@@ -69,6 +43,8 @@ function getMyAccount() {
     let userID = window.state.userId;
     fetchResult('GET','/myaccount/'+ userID,{},function (data) {
         data = data[0];
+        window.state.height = data.Height;
+        window.state.targetWeight = data.TargetWeight;
         showTemplate("account-table-template", "account-place", data);
     });
 }
@@ -83,3 +59,42 @@ function postNewUser() {
     });
 }
 
+function bodyIndex(weight, height) {
+    return weight / height / height;
+}
+
+function countResults(data) {
+    let stack = data;
+
+    let last = data[data.length-1];
+    let beforeLast = last;
+    let first = last;
+
+    if (stack.length > 1) {
+        beforeLast = data[data.length-2];
+        first = beforeLast;
+    }
+    if (stack.length > 2) {
+        first = data[0];
+    }
+
+    window.state.currentWeight = last.Weight;
+    let prevWeight = first.Weight;
+
+    let i;
+    for (i = data.length - 1; i >= 0  ; i--) {
+
+        data[i].MeasureDate = new Date(data[i].MeasureDate);
+        data[i].WeightLoss = data[i].Weight - prevWeight;
+        data[i].TotalWeightLoss = data[i].Weight - first.Weight;
+        data[i].BodyIndex = bodyIndex(data[i].Weight,window.state.height);
+
+        data[i].WeightLoss = data[i].WeightLoss.toFixed(1);
+        data[i].TotalWeightLoss = data[i].TotalWeightLoss.toFixed(1);
+        data[i].BodyIndex = data[i].BodyIndex.toFixed(1);
+        data[i].MeasureDate = data[i].MeasureDate.toLocaleDateString();
+        prevWeight = data[i].Weight;
+    }
+    console.log("data" + data);
+    return {last, beforeLast, first, data};
+}

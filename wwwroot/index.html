@@ -48,25 +48,8 @@
 
 <script type="text/template" id="main-view">
     <h1>Lose<span class="red">!</span>t</h1>
-    <div class="header-background">
-        <h2 class="font-effect-anaglyph">Current weight</h2>
-        <div id="current-weight" class="current-weight left">58.9 kg</div>
-        <div class="container weight-table left-down">
-            <div class="row weight-table-headers font-effect-anaglyph">
-                <div class="col col-sm th">Weight loss</div>
-                <div class="col-sm th">Total weight loss</div>
-                <div class="col col-sm th">Previous weight</div>
-                <div class="col col-sm th">Body index</div>
-                <div class="col col-sm th">Still to lose</div>
-            </div>
-            <div class="row">
-                <div class="col col-sm" id="weight-loss">4 kg</div>
-                <div class="col col-sm" id="total-weight-loss">9 kg</div>
-                <div class="col col-sm" id="previous-weight">60 kg</div>
-                <div class="col col-sm" id="body-index">26</div>
-                <div class="col col-sm" id="still-to-lose">39.9 kg</div>
-            </div>
-        </div>
+    <div class="header-background" id="weight-header-place">
+        
     </div>
 
     <div class="container input-history">
@@ -124,6 +107,27 @@
         <input type=\"text\" id=\"weight-today\" name=\"weightToday\" placeholder=\"Your current weight..\"></label>
     <input type=\"submit\" value=\"Save\" onclick=\"postMeasure()\">
     </form>
+</script>
+
+<script type="text/template" id="weight-header-template">
+    <h2 class=\"font-effect-anaglyph\">Current weight</h2>
+    <div id=\"current-weight\" class=\"current-weight left\"><% this.currentWeight %> kg</div>
+    <div class=\"container weight-table left-down\">
+        <div class=\"row weight-table-headers font-effect-anaglyph\">
+            <div class=\"col col-sm th\">Weight loss</div>
+            <div class=\"col-sm th\">Total weight loss</div>
+            <div class=\"col col-sm th\">Previous weight</div>
+            <div class=\"col col-sm th\">Body index</div>
+            <div class=\"col col-sm th\">Still to lose</div>
+        </div>
+        <div class=\"row\">
+            <div class=\"col col-sm\" id=\"weight-loss\"><% this.weightLoss %> kg</div>
+            <div class=\"col col-sm\" id=\"total-weight-loss\"><% this.totalWeightLoss %> kg</div>
+            <div class=\"col col-sm\" id=\"previous-weight\"><% this.prevWeight %> kg</div>
+            <div class=\"col col-sm\" id=\"body-index\"><% this.bodyIndex %></div>
+            <div class=\"col col-sm\" id=\"still-to-lose\"><% this.stillToLose %> kg</div>
+        </div>
+    </div>
 </script>
 
 <script type="text/template" id="search-template">
