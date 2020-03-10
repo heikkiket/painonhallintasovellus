@@ -76,9 +76,16 @@ connection.connect(function(err) {
     //ACCOUNT
     app.get('/myaccount/:userId', function (req, res) { //Hae käyttäjän 1 profiilitiedot
         var userId = req.params.userId;
+
+        if(userId == 'null') {
+            res.send();
+        }
+
         connection.query("SELECT * FROM users WHERE Id = ?", [userId], function (err, result, fields) {
             if (err) throw err;
-            res.send(result);
+            let {Password, ...resultWoPass} = result[0];
+            console.log(resultWoPass);
+            res.send(resultWoPass);
         });
     });
 

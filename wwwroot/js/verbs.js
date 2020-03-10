@@ -42,7 +42,6 @@ function postMeasure() {
 function getMyAccount() {
     let userID = window.state.userId;
     fetchResult('GET','/myaccount/'+ userID,{},function (data) {
-        data = data[0];
         window.state.accountInfo = data;
         window.state.height = data.Height;
         window.state.targetWeight = data.TargetWeight;
