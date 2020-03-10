@@ -125,6 +125,7 @@ connection.connect(function(err) {
 
     // USER CREATION
     app.post('/users', function (req, res) {
+        console.log("Creating user");
         var name = req.body.name;
         var height = req.body.height;
         var startingWeight = req.body.startingWeight;
