@@ -1,5 +1,6 @@
 function loginToken() {
     if (window.state.token == null) {
+        window.state.userId = localStorage.getItem('userId');
         if (localStorage.getItem('token') == null)
             return '';
 
@@ -20,6 +21,7 @@ function userLogin(data) {
     window.state.token = data.token;
     window.state.userId = data.resultWithoutPassword.Id;
     localStorage.setItem('token', data.token);
+    localStorage.setItem('userId', data.resultWithoutPassword.Id);
     renderMenu();
     window.router.navigateTo('/');
 }
@@ -29,6 +31,7 @@ function userLogout() {
     window.state.token = null;
     window.state.userId = null;
     localStorage.removeItem('token');
+    localStorage.removeItem('userId');
     renderMenu();
 }
 
