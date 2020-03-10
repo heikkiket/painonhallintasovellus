@@ -96,8 +96,8 @@ connection.connect(function(err) {
         var startingWeight = req.body.startingWeight;
         var targetWeight = req.body.targetWeight;
         connection.query(
-            "UPDATE users SET UserName = ?, Height = ?, TargetWeight = ? WHERE Id = ?",
-            [name, height, targetWeight, userId] ,
+            "UPDATE users SET UserName = ?, Height = ?, StartingWeight = ?, TargetWeight = ? WHERE Id = ?",
+            [name, height, startingWeight, targetWeight, userId] ,
             function (err, result, fields) {
                 if (err) throw err;
                 res.send({message: "ok"});

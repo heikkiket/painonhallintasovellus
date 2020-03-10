@@ -11,7 +11,7 @@ body, html {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left top, right top;
-    height: 500px;
+    height: 250px;
 }
 img {
     width: 80%;
@@ -54,7 +54,8 @@ h2 {
     font-family: 'Roboto';
     font-size: 4.3em;
     font-weight: 900;
-    color: white;
+    color: gray;
+    text-align: center;
 
 }
 
@@ -131,8 +132,8 @@ navbar
 input history table
  */
 .view-container {
-    /* padding-left: 2em; */
-    /* padding-right: 2em; */
+    padding-left: 2em;
+    padding-right: 2em;
     /* transform: translate(-50%, 0); */
     /* margin: 0 auto; */
     /* margin-bottom: 2em; */
@@ -148,12 +149,12 @@ input history table
 weight today div
  */
 
-.weight-today-div {
+.loseit-box {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 1.1em 0.85em 1em 0.85em;
 }
-.weight-today-div form label {
+.loseit-box form label {
     font-family: Roboto;
     font-weight: bold;
 }
@@ -184,6 +185,10 @@ select {
 
 .basicButton:hover {
     background-color: #b90626;
+}
+
+.secondaryButton {
+    background-color: #888;
 }
 
 /*
