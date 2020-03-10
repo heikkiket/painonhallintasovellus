@@ -15,8 +15,8 @@ function getMeasuresHeader() {
         
         let {last,beforeLast,first} = results;
 
-        let loss;
-        if (last.Weight - beforeLast.Weight >= 0) {
+        let loss = (last.Weight - beforeLast.Weight).toFixed(1);
+        if (loss >= 0) {
             loss = "+" + (last.Weight - beforeLast.Weight).toFixed(1);
         }
         let displayData = {
@@ -97,7 +97,7 @@ function countResults(data) {
         }
         data[i].TotalWeightLoss = data[i].Weight - first.Weight;
         data[i].BodyIndex = bodyIndex(data[i].Weight,window.state.height);
-        
+
         data[i].TotalWeightLoss = data[i].TotalWeightLoss.toFixed(1);
         data[i].BodyIndex = data[i].BodyIndex.toFixed(1);
         data[i].MeasureDate = data[i].MeasureDate.toLocaleDateString();
