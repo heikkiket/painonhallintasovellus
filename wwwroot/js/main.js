@@ -23,9 +23,6 @@ function main() {
         getMyAccount();
         getMeasuresHeader();
     });
-    router.add('/view/search', () => {
-        showView("search-view");
-    });
     router.add('/view/history', () => {
         showView("history-view");
         getMeasures();
