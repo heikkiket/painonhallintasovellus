@@ -9,7 +9,8 @@ const state = {
     currentWeight: null,
     height: null,
     targetWeight: null,
-    token: null
+    token: null,
+    accountInfo: {}
 };
 
 window.state = state;

@@ -43,14 +43,18 @@ function getMyAccount() {
     let userID = window.state.userId;
     fetchResult('GET','/myaccount/'+ userID,{},function (data) {
         data = data[0];
+        window.state.accountInfo = data;
         window.state.height = data.Height;
         window.state.targetWeight = data.TargetWeight;
         showTemplate("account-table-template", "account-place", data);
     });
 }
 
-function putMyAccount() {
-    fetchResult('PUT','/myaccount/:userId', {},function (data) {
+function putMyAccount(data) {
+    let userId = window.state.userId;
+    fetchResult('PUT','/myaccount/' + userId, data, function (data) {
+        // Fetch new stuff after inserting
+        getMyAccount();
     });
 }
 

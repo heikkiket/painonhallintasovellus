@@ -239,12 +239,49 @@
         </tbody>
     </table>
     <form action=\"\">
-        <input type=\"button\" value=\"Edit\" onclick=\"handleAccount()\"> <!-- Ja Save -->
+        <input type=\"button\" value=\"Edit\" onclick=\"editAccount()\"> <!-- Ja Save -->
+    </form>
+</script>
+
+<script type="text/template" id="account-table-edit-template">
+    <form name=\"accountEditForm\" onSubmit='return false'>
+        <table id=\"account-table\">
+            <tbody id=\"account-tbody\">
+            <tr>
+                <th>Name</th>
+            </tr>
+            <tr id=\"tr-name\">
+                <td id=\"name\">
+                    <input name=\"UserName\" type=\"text\" value=\"<% this.UserName %>\">
+                </td>
+            </tr>
+            <tr>
+                <th>Height</th>
+            </tr>
+            <tr id=\"tr-height\">
+                <td id=\"height\"><input type=\"number\" name=\"Height\" value=\"<% this.Height %>\"></td>
+            </tr>
+            <tr>
+                <th>Starting weight</th>
+            </tr>
+            <tr id=\"tr-starting-weight\">
+                <td id=\"starting-weight\"><% this.StartingWeight %></td>
+            </tr>
+            <tr>
+                <th>Target weight</th>
+            </tr>
+            <tr id=\"tr-target-weight\">
+                <td id=\"target-weight\"><input type=\"number\" name=\"targetWeight\" value=\"<% this.TargetWeight %>\"></td>
+            </tr>
+            </tbody>
+        </table>
+        <input type=\"button\" value=\"save\" onclick=\"saveAccount()\"> 
     </form>
 </script>
 
 <script defer src="/js/templator.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/vanilla-router@1.2.7/index.min.js" type="text/javascript"></script>
+<script defer src="/js/controllerFunctions.js"></script>
 <script defer src="/js/user.js"></script>
 <script defer src="/js/helpers.js"></script>
 <script defer src="/js/verbs.js"></script>
