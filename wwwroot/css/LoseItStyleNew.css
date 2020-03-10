@@ -15,7 +15,6 @@ body, html {
 }
 img {
     width: 80%;
-    /*margin-left: -15em;*/
     margin-bottom: 0;
 
     z-index: -1000;
@@ -26,16 +25,11 @@ img {
     font-weight: bold;
     color: white;
 }
-.left {
-
-}
 
 h1 {
     font-family: 'Roboto';
     font-size: 1.4em;
     font-weight: bold;
-
-
 }
 .red {
     color: red;
@@ -44,10 +38,9 @@ h1 {
 
 h2 {
     font-family: 'Roboto' ;
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: 900;
     color: white;
-
 }
 
 .h2-sub{
@@ -69,11 +62,6 @@ weight table
     font-weight: bold;
     color: white;
 }
-.left-down {
-
-    /*top: 3.2em;
-    left: 0.7em;*/
-}
 
 .weight-table-headers {
     font-family: 'Roboto' ;
@@ -82,14 +70,30 @@ weight table
     color: white;
 }
 .col {
-    font-size: 0.8em;
+    font-size: 0.7em;
 }
 .th {
-    padding: 0 0.7em 0 0.7em;
     text-align: left;
 }
-.col {
-    padding: 0 0em 0 0.35em;
+
+.container div:nth-child(1) div:nth-child(1){
+    padding-top: 2.6em;
+}
+
+.container div:nth-child(1) .col{
+    padding-top: 6.5em;
+}
+
+.container div:nth-child(2) div:nth-child(1){
+    padding-top: 0em;
+}
+.container div:nth-child(2) .col{
+    padding-top: 0em;
+}
+
+.container div:nth-child(2) div:nth-child(1){
+    font-size: 2em;
+    margin-top: -0.6em;
 }
 
 /*
@@ -98,7 +102,6 @@ navbar
 .own_navbar {
     width: 100%;
     overflow: auto;
-
     text-align: center;
     margin-top: 1em;
 }
@@ -198,9 +201,6 @@ search
     border-radius: 5px;
     background-color: #f1e4ff;
     padding: 1.1em 1.65em 1em 0;
-    /*position: absolute;
-    top: 22em;
-    left: 22em;*/
     font-family: 'Roboto';
     padding-bottom: 0.1em;
     width: 10em;
@@ -215,8 +215,6 @@ search
     font-weight: bold;
 }
 
-
-
 .search .col {
     padding: 0 0 1em 0.7em;
     font-size: 1em;
@@ -228,10 +226,7 @@ weight history
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 1em 0 1em 0;
-    /*position: absolute;
-    top: 22em;
-    right: 14em;*/
-    width: 36em; /*34.1em;*/
+    width: 36em;
 }
 #weight-measurements tr:nth-child(even) {
     background-color: white;
@@ -261,9 +256,6 @@ account
     border-radius: 5px;
     background-color: #f1e4ff;
     padding: 1em 0 1em 0;
-    /*position: absolute;
-    top: 22em;
-    right: 4em;*/
     font-family: 'Roboto';
     padding-bottom: 0.1em;
 }
