@@ -19,6 +19,15 @@ img {
 
     z-index: -1000;
 }
+
+.footteri{
+    width: 100%;
+    margin-bottom: 0;
+
+    z-index: -1000;
+}
+
+
 .current-weight {
     font-family: 'Roboto';
     font-size: 6em;
