@@ -33,21 +33,21 @@ app.use(jwtHelper());
 
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
-        res.append('Content-Type', "application/json");
+        res.append('Content-Type', 'application/json');
         res.status(401).send({error: 'Invalid token.'});
     }
 });
 
 app.use((req, res, next) => {
-    res.append('Content-type', "application/json");
+    res.append('Content-type', 'application/json');
     next();
-})
+});
 
 connection.connect(function(err) {
     if (err) throw err;
     app.get(['/', '/view/:view'], function (req, res) {
-        res.append('Content-Type', "text/html; charset=UTF-8");
-        res.sendFile(__dirname + '/wwwroot/index.html');
+        let headers = {'Content-Type': 'text/html'};
+        res.sendFile(__dirname + '/wwwroot/index.html', {headers});
     });
 
     //MEASUREMENTS
