@@ -33,6 +33,7 @@ function userLogout() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     renderMenu();
+    router.navigateTo('/');
 }
 
 function login() {

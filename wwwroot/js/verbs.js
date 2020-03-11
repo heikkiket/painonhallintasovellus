@@ -12,23 +12,30 @@ function getMeasuresHeader() {
     let userId = window.state.userId;
     fetchResult('GET','/measures/'+userId,{}, function (data) {
         let results = countResults(data);
-        
+
         let {last,beforeLast,first} = results;
 
-        let loss = (last.Weight - beforeLast.Weight).toFixed(1);
-        if (loss >= 0) {
-            loss = "+" + (last.Weight - beforeLast.Weight).toFixed(1);
-        }
-        let displayData = {
-            currentWeight: last.Weight,
-            weightLoss: loss,
-            totalWeightLoss: (last.Weight - first.Weight).toFixed(1),
-            prevWeight: beforeLast.Weight,
-            bodyIndex: bodyIndex(last.Weight,window.state.height).toFixed(1),
-            stillToLose: (last.Weight - window.state.targetWeight).toFixed(1)
-        };
+        let displayData = {};
+        // Remove old results
+        document.getElementById("weight-header-place").innerHTML = "";
 
-        showTemplate("weight-header-template","weight-header-place",displayData);
+        if(last !== undefined) {
+            let loss = (last.Weight - beforeLast.Weight).toFixed(1);
+            if (loss >= 0) {
+                loss = "+" + (last.Weight - beforeLast.Weight).toFixed(1);
+            }
+
+            displayData = {
+                currentWeight: last.Weight,
+                weightLoss: loss,
+                totalWeightLoss: (last.Weight - first.Weight).toFixed(1),
+                prevWeight: beforeLast.Weight,
+                bodyIndex: bodyIndex(last.Weight,window.state.height).toFixed(1),
+                stillToLose: (last.Weight - window.state.targetWeight).toFixed(1)
+            };
+            showTemplate("weight-header-template","weight-header-place",displayData);
+        }
+
     });
 }
 
@@ -43,13 +50,15 @@ function postMeasure() {
     });
 }
 
-function getMyAccount() {
+function getMyAccount(show = false) {
     let userID = window.state.userId;
     fetchResult('GET','/myaccount/'+ userID,{},function (data) {
         window.state.accountInfo = data;
         window.state.height = data.Height;
         window.state.targetWeight = data.TargetWeight;
-        showTemplate("account-table-template", "account-place", data);
+        if(show){
+            showTemplate("account-table-template", "account-place", data);
+        }
     });
 }
 
@@ -57,7 +66,7 @@ function putMyAccount(data) {
     let userId = window.state.userId;
     fetchResult('PUT','/myaccount/' + userId, data, function (data) {
         // Fetch new stuff after inserting
-        getMyAccount();
+        getMyAccount(true);
     });
 }
 
@@ -85,26 +94,28 @@ function countResults(data) {
         first = data[0];
     }
 
-    window.state.currentWeight = last.Weight;
-    let prevWeight = first.Weight;
+    if(last !== undefined) {
+        window.state.currentWeight = last.Weight;
+        let prevWeight = first.Weight;
 
-    let i;
-    for (i = data.length - 1; i >= 0  ; i--) {
+        let i;
+        for (i = data.length - 1; i >= 0  ; i--) {
 
-        data[i].MeasureDate = new Date(data[i].MeasureDate);
+            data[i].MeasureDate = new Date(data[i].MeasureDate);
 
-        data[i].WeightLoss = data[i].Weight - prevWeight;
-        data[i].WeightLoss = data[i].WeightLoss.toFixed(1);
-        if (data[i].WeightLoss >= 0) {
-            data[i].WeightLoss = "+" + (data[i].Weight - prevWeight).toFixed(1);
+            data[i].WeightLoss = data[i].Weight - prevWeight;
+            data[i].WeightLoss = data[i].WeightLoss.toFixed(1);
+            if (data[i].WeightLoss >= 0) {
+                data[i].WeightLoss = "+" + (data[i].Weight - prevWeight).toFixed(1);
+            }
+            data[i].TotalWeightLoss = data[i].Weight - first.Weight;
+            data[i].BodyIndex = bodyIndex(data[i].Weight,window.state.height);
+
+            data[i].TotalWeightLoss = data[i].TotalWeightLoss.toFixed(1);
+            data[i].BodyIndex = data[i].BodyIndex.toFixed(1);
+            data[i].MeasureDate = data[i].MeasureDate.toLocaleDateString();
+            prevWeight = data[i].Weight;
         }
-        data[i].TotalWeightLoss = data[i].Weight - first.Weight;
-        data[i].BodyIndex = bodyIndex(data[i].Weight,window.state.height);
-
-        data[i].TotalWeightLoss = data[i].TotalWeightLoss.toFixed(1);
-        data[i].BodyIndex = data[i].BodyIndex.toFixed(1);
-        data[i].MeasureDate = data[i].MeasureDate.toLocaleDateString();
-        prevWeight = data[i].Weight;
     }
     return {last, beforeLast, first, data};
 }

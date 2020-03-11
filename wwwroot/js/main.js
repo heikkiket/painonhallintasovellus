@@ -26,18 +26,20 @@ function main() {
     router.add('/', () => {
         if(!loggedin()) {
             showView('login-view');
+            getMeasuresHeader();
         } else {
             showView("main-view");
 
+            getMyAccount();
             let name = window.state.accountInfo.UserName;
             showTemplate("weight-today-template", "weight-today-place", {name});
-            getMyAccount();
             getMeasuresHeader();
         }
     });
     router.add('/view/history', () => {
         if(!loggedin()) {
             showView('login-view');
+            getMeasuresHeader();
         } else {
             showView("history-view");
             getMeasures();
@@ -46,9 +48,10 @@ function main() {
     router.add('/view/account', () => {
         if(!loggedin()) {
             showView('login-view');
+            getMeasuresHeader();
         } else {
             showView("account-view");
-            getMyAccount();
+            getMyAccount(true);
         }
     });
 

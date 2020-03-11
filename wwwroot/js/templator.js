@@ -26,5 +26,6 @@ applyTemplate = function(tmpl, data) {
     }
     add(tmpl.slice(cursor));
     code += 'return r.join("")';
+    //console.log(code);
     return new Function(code).apply(data);
 };
