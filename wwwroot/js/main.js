@@ -31,9 +31,18 @@ function main() {
             showView("main-view");
 
             getMyAccount();
-            let name = window.state.accountInfo.UserName;
-            showTemplate("weight-today-template", "weight-today-place", {name});
-            getMeasuresHeader();
+
+            let timeout = 0;
+            // Wait for account information to load:
+            if(window.state.accountInfo.UserName == null) {
+                timeout = 1500;
+            }
+            setTimeout(() => {
+                let name = window.state.accountInfo.UserName;
+                showTemplate("weight-today-template", "weight-today-place", {name});
+                getMeasuresHeader();
+            }, timeout);
+
         }
     });
     router.add('/view/history', () => {
