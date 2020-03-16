@@ -12,6 +12,7 @@ body, html {
     background-repeat: no-repeat;
     background-position: left top, right top;
     height: 250px;
+    overflow: hidden;
 }
 img {
     width: 80%;
@@ -225,6 +226,16 @@ weight history
     padding: 1em 0 1em 0;
     width: 36em;
 }
+
+#weight-measurements th {
+    padding: 0.5em;
+}
+
+#weight-measurements td {
+    /* border: 1px solid gray; */
+    padding: 0.5em;
+}
+
 #weight-measurements tr:nth-child(even) {
     background-color: white;
 }
