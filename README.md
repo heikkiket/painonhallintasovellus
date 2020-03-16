@@ -11,9 +11,10 @@ sudo apt install docker
 Tämän jälkeen kloonaa tämä git-repo, siirry projektin sisältävään kansioon, ja aja seuraavat skriptit:
 ```
 ./mariadb-docker.sh install
+./mariadb-docker.sh start
 ./mariadb-docker.sh setup
 ```
-Ensimmäinen näistä asentaa Mariadb:n Docker-ympäristöön, jälkimmäinen taas konfiguroi tietokannan valmiiksi sovellusta varten. Siirry kohtaan buildaaminen.
+Ensimmäinen näistä asentaa Mariadb:n Docker-ympäristöön, toinen käynnistää MariaDB:n ja kolmas taas konfiguroi tietokannan valmiiksi sovellusta varten. Siirry kohtaan buildaaminen.
 
 ### Asennus käsipelissä vanhan liiton ihmisille
 Luo tietokantakäyttäjä nimeltä `expressmysql` ja anna sille oikeudet painonhallinta_db -kantaan.
