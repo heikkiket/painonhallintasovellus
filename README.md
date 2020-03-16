@@ -62,7 +62,7 @@ POST http://localhost:8081/users
 Content-Type: application/json
 
 {
-  name: Pentti,
+  "name": "Pentti",
   "password": "asd123",
   "height": 187,
   "startingWeight": 100,
@@ -73,12 +73,24 @@ Content-Type: application/json
 
 ## Rajapintakuvaus
 
-| Metodi | Endpoint            | Body   | Kuvaus   |
-| ------ | :-----------------: | -----: | -------: |
-| GET    | /measures/:userId   |        |          |
-| POST   |                     |        |          |
-| PUT    |                     |        |          |
-|        |                     |        |          |
-|        |                     |        |          |
-|        |                     |        |          |
-|        |                     |        |          |
+| Metodi | Endpoint            | Body                                                                                               | Palauttaa               | Kuvaus                                        |
+| ------ | :-----------------: | -----:                                                                                             | :--------               | -------:                                      |
+| POST   | /login              | {"username": "user", "password": "pass"}                                                           | Token ja käyttäjätietue |                                               |
+| GET    | /myaccount/:id      | -                                                                                                  | Käyttäjätietue          | Palauttaa käyttäjätietueen.                   |
+| PUT    | /myaccount/:id      | {"name": "user", "height": 190, "startingWeight": 90, "targetWeight": 85}                          |                         |                                               |
+| GET    | /measures/:userId   | -                                                                                                  |                         |                                               |
+| POST   | /measures/:userId   | {"weightToday": 81}                                                                                | {message: "Inserted."}  | Tallentaa uuden painomittauksen tietokantaan. |
+| POST   | /users              | {"name": "Pentti", "password": "asd123", "height": 187, "startingWeight": 100, "targetWeight": 80} |                         |                                               |
+
+## Muutama sana projektin rakenteesta
+Projekti rakentuu siten, että backend sijaitsee suoraan projektin juuressa ja frontend puolestaan `wwwroot`-kansiossa.
+
+Tämä ratkaisu rajoittaa npm:n käytön ainoastaan backendiin. Fronttiin ei voitu asentaa lisäpalikoita npm:n kautta, koska sieltä ei ole näkyvyyttä `wwwroot`-kansion ulkopuolelle.
+
+Frontendissa käytetään erillistä reititin-moduulia, joka käsittelee osoitteita. Kaikki `/views**-polun alle osoittavat URL-osoitteet käsittelee frontend. Backend siis käytännössä katsoo, kohdistuuko pyyntö juureen tai /views-polkuun. Jos kohdistuu, annetaan index.html -tiedosto, joka lataa javascript-koodin, joka puolestaan käsittelee osoitteen oikein. Jokainen erillinen URL-osoite käynnistää main.js-tiedostossa callback-funktion suorituksen. Nämä funktiot luovat sovelluksen näkymät.
+
+ - verbs.js -tiedostossa käsitellään frontendista lähetettävät rajapintakutsut ja niiden vastaukset.
+ - user.js -tiedostossa on käyttäjän tietojen hallintaan liittyvät funktiot
+ - controllerFunctions.js -tiedostossa on pari HTML-frontendia käsittelevää kirjautumiseen liittyvää funktiota
+ - helpers.js -tiedostossa on joukko apufunktioita mm. templateiden näyttämistä varten
+ - templator.js -tiedosto on yksinkertainen templatointitoiminto.
