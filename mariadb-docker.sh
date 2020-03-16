@@ -10,6 +10,7 @@ elif [ "$1" == "setup" ]; then
         mysql -h $(docker inspect --format '{{ .NetworkSettings.IPAddress }}' otp-mariadb) -u root --password=passwrd < misc/painonhallintasovellus.sql;
 elif [ "$1" == "remove" ]; then
         docker rm otp-mariadb --volumes
+        docker rmi mariadb:10.3
 elif [ "$1" == "start" ]; then
         docker restart otp-mariadb
 elif [ "$1" == "stop" ]; then
