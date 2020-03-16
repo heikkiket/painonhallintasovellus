@@ -58,7 +58,7 @@ npm run api
 Jotta sovellukseen voi kirjautua, pitää luoda käyttäjä. Se tapahtuu seuraavasti:
 
 ```
-POST localhost:8081/users
+POST http://localhost:8081/users
 Content-Type: application/json
 
 {
