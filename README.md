@@ -73,14 +73,14 @@ Content-Type: application/json
 
 ## Rajapintakuvaus
 
-| Metodi | Endpoint           | Body                    | Palauttaa | Kuvaus   |
-| ------ | :----------------- | :-----                  | :-------- | :------- |
-| POST   | /login             | ```{"username": "user", "password": "pass"}```                                                       | Token ja käyttäjätietue      |                                               |
-| GET    | /myaccount/:id      | -                                                                                                        | Käyttäjätietue               | Palauttaa käyttäjätietueen.                   |
-| PUT    | /myaccount/:id      | ```{"name": "user", "height": 190, "startingWeight": 90, "targetWeight": 85}```              |                              |                                               |
-| GET    | /measures/:userId   | -                                                                                                        |                              |                                               |
-| POST   | /measures/:userId   | ```{"weightToday": 81}```                                                                                | ```{message: "Inserted."}``` | Tallentaa uuden painomittauksen tietokantaan. |
-| POST   | /users              | ```{"name": "Pentti", "password": "asd123", "height": 187, "startingWeight": 100, "targetWeight": 80}``` |                              |                                               |
+| Metodi | Endpoint           | Body                                                                                                     | Palauttaa                    | Kuvaus                                        |
+| ------ | :----------------- | :-----                                                                                                   | :--------                    | :-------                                      |
+| POST   | /login             | ```{"username": "user", "password": "pass"}```                                                           | Token ja käyttäjätietue      |                                               |
+| GET    | /myaccount/:userId | -                                                                                                        | Käyttäjätietue               | Palauttaa käyttäjätietueen.                   |
+| PUT    | /myaccount/:userId | ```{"name": "user", "height": 190, "startingWeight": 90, "targetWeight": 85}```                          |                              |                                               |
+| GET    | /measures/:userId  | -                                                                                                        |                              |                                               |
+| POST   | /measures/:userId  | ```{"weightToday": 81}```                                                                                | ```{message: "Inserted."}``` | Tallentaa uuden painomittauksen tietokantaan. |
+| POST   | /users             | ```{"name": "Pentti", "password": "asd123", "height": 187, "startingWeight": 100, "targetWeight": 80}``` |                              |                                               |
 
 ## Muutama sana projektin rakenteesta
 Projekti rakentuu siten, että backend sijaitsee suoraan projektin juuressa ja frontend puolestaan `wwwroot`-kansiossa.
