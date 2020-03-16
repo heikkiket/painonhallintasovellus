@@ -73,12 +73,11 @@ Content-Type: application/json
 
 ## Rajapintakuvaus
 
-| Metodi | Endpoint            | Body                    | Palauttaa | Kuvaus   |
+| Metodi | Endpoint           | Body                    | Palauttaa | Kuvaus   |
 | ------ | :----------------- | :-----                  | :-------- | :------- |
-| POST   | /login              | ```{"username": "user", |           |          |
-"password": "pass"}```                                                       | Token ja käyttäjätietue      |                                               |
+| POST   | /login             | ```{"username": "user", "password": "pass"}```                                                       | Token ja käyttäjätietue      |                                               |
 | GET    | /myaccount/:id      | -                                                                                                        | Käyttäjätietue               | Palauttaa käyttäjätietueen.                   |
-| PUT    | /myaccount/:id      | ```{"name": "user",<br> "height": 190, <br>"startingWeight": 90,<br> "targetWeight": 85}```              |                              |                                               |
+| PUT    | /myaccount/:id      | ```{"name": "user", "height": 190, <br>"startingWeight": 90,<br> "targetWeight": 85}```              |                              |                                               |
 | GET    | /measures/:userId   | -                                                                                                        |                              |                                               |
 | POST   | /measures/:userId   | ```{"weightToday": 81}```                                                                                | ```{message: "Inserted."}``` | Tallentaa uuden painomittauksen tietokantaan. |
 | POST   | /users              | ```{"name": "Pentti",<br> "password": "asd123",<br> "height": 187,<br> "startingWeight": 100,<br> "targetWeight": 80}``` |                              |                                               |
