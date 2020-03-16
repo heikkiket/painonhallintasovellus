@@ -53,7 +53,7 @@ connection.connect(function(err) {
     //MEASUREMENTS
     app.get('/measures/:userId', function (req, res) { //Hae käyttäjän 1 mittaukset
         var userId = req.params.userId;
-        connection.query("SELECT * FROM measures WHERE UserId = ? ORDER BY MeasureDate DESC", [userId], function (err, result, fields) {
+        connection.query("SELECT * FROM measures WHERE UserId = ? ORDER BY MeasureDate ASC", [userId], function (err, result, fields) {
             if (err) throw err;
             res.send(result);
         });
@@ -62,14 +62,15 @@ connection.connect(function(err) {
     app.post('/measures/:userId', function (req, res) { //Lisää uusi mittaus käyttäjälle 1
         var userId = req.params.userId;
         var d = new Date();
-        var todayDate = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDay() //DATE '2020-02-27'
+        var todayDate = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate() //DATE '2020-02-27'
         var weightToday = req.body.weightToday;
         var userId = req.params.userId;
         connection.query("INSERT INTO measures (MeasureDate,Weight,UserId) VALUES (DATE ?,?,?);",
                          [todayDate, weightToday, userId] , function (err, result, fields) {
                              if (err) throw err;
-                             res.send();
-                             console.log("Measurement was inserted: " + result);
+                             res.send({message: "Inserted."});
+                             console.log("Measurement was inserted: ");
+                             console.log(result);
                          });
     });
 
