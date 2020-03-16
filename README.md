@@ -6,9 +6,9 @@ Painonhallintasovellus
 ### Täysin automatisoitu luksusasennus
 Mikäli sinulla on docker asennettuna, voit käyttää hyväksesi projektiin lisättyä Docker-skriptiä. Dockerin saat asennettua oheisien ohjeiden avulla:
 
-https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository
-https://docs.docker.com/docker-for-mac/install/
-https://docs.docker.com/docker-for-windows/install/
+ * https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository
+ * https://docs.docker.com/docker-for-mac/install/
+ * https://docs.docker.com/docker-for-windows/install/
 
 Tämän jälkeen kloonaa tämä git-repo, siirry projektin sisältävään kansioon, ja aja seuraavat skriptit:
 ```
