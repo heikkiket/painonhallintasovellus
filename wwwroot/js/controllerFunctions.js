@@ -13,7 +13,3 @@ function saveAccount() {
 
     putMyAccount(data);
 }
-
-function drawLoginStuff() {
-
-}

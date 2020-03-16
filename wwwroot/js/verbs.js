@@ -8,6 +8,7 @@ function getMeasures() {
         showTemplate("weight-measures-template","weight-history-place", {data: results.data.reverse() });
     });
 }
+
 function getMeasuresHeader() {
     let userId = window.state.userId;
     fetchResult('GET','/measures/'+userId,{}, function (data) {

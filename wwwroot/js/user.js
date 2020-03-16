@@ -1,3 +1,6 @@
+/**
+ * Return either valid 'Authorization' header content or an empty string
+ */
 function loginToken() {
     if (window.state.token == null) {
         window.state.userId = localStorage.getItem('userId');
@@ -10,6 +13,9 @@ function loginToken() {
     return "Bearer " + window.state.token;
 }
 
+/**
+ * This function is used as boolean variable: is user logged in? 
+ */
 function loggedin() {
     if(loginToken() == '')
         return false;
@@ -17,6 +23,10 @@ function loggedin() {
         return true;
 }
 
+/**
+ * This function is executed if login was succesful. It saves login
+ * token to application state and to the local storage.
+ */
 function userLogin(data) {
     window.state.token = data.token;
     window.state.userId = data.resultWithoutPassword.Id;
@@ -26,7 +36,9 @@ function userLogin(data) {
     window.router.navigateTo('/');
 }
 
-
+/**
+ * Remove login token from state and from local storage.
+ */
 function userLogout() {
     window.state.token = null;
     window.state.userId = null;
@@ -36,6 +48,10 @@ function userLogout() {
     router.navigateTo('/');
 }
 
+/**
+ * Handle user login.
+ * TODO: Write proper error handling.
+ */
 function login() {
     let form = document.forms.loginForm;
     let username = form.elements.username.value;

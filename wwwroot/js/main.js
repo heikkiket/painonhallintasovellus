@@ -4,6 +4,9 @@ const router = new Router({
 	  mode: 'history',
 });
 
+/**
+ * This object saves the application state.
+ */
 const state = {
     userId: null,
     currentWeight: null,
@@ -13,6 +16,7 @@ const state = {
     accountInfo: {}
 };
 
+// Make the state global
 window.state = state;
 
 function main() {
@@ -71,6 +75,9 @@ function main() {
     renderMenu();
 }
 
+/**
+ * This function renders either logged out or logged in menu
+ */
 function renderMenu() {
     let logged = loggedin();
     showTemplate("menu-template", "menu-place", {loggedin: logged});

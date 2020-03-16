@@ -89,12 +89,14 @@ Tämä ratkaisu rajoittaa npm:n käytön ainoastaan backendiin. Fronttiin ei voi
 
 Autentikaatio on toteutettu melko yksinkertaisesti käyttämällä ExpressJwt-middlewarea. Käytännössä jokainen http-pyyntö ohjataan jwt-tarkistimen läpi. Tarkistin katsoo sallittujen polkujen listan, ja jättää tällä listalla olevat polut tarkistamatta. Lopuista poluista se tarkistaa JWT-tokenin oikeellisuuden config.json -tiedostossa olevaa secretiä vasten. Tämä tarkistin löytyy polusta `lib/jwt.js`.
 
+Kannattaa huomata, että autentikointisysteemin myöntämillä tokeneilla ei ole vanhentumisaikaa. Jokainen kirjautumistoken on siis voimassa ikuisesti. Tuotantokäyttöön suunnatussa toteutuksessa vähintään tämä pitäisi muuttaa.
+
 Frontendissa käytetään erillistä reititin-moduulia, joka käsittelee osoitteita. Kaikki `/views` -polun alle osoittavat URL-osoitteet käsittelee frontend. Backend siis käytännössä katsoo, kohdistuuko pyyntö juureen tai `/views` -polkuun. Jos kohdistuu, annetaan index.html -tiedosto, joka lataa javascript-koodin, joka puolestaan käsittelee osoitteen oikein. Jokainen erillinen URL-osoite käynnistää main.js-tiedostossa callback-funktion suorituksen. Nämä funktiot luovat sovelluksen näkymät.
 
 Listaus frontendin skriptitiedostoista (`wwwroot/js`-kansiossa)
 
  - verbs.js -tiedostossa käsitellään frontendista lähetettävät rajapintakutsut ja niiden vastaukset.
  - user.js -tiedostossa on käyttäjän tietojen hallintaan liittyvät funktiot
- - controllerFunctions.js -tiedostossa on pari HTML-frontendia käsittelevää kirjautumiseen liittyvää funktiota
+ - controllerFunctions.js -tiedostossa on pari HTML-frontendia käsittelevää käyttäjätilin muokkaamiseen liittyvää funktiota.
  - helpers.js -tiedostossa on joukko apufunktioita mm. templateiden näyttämistä varten
  - templator.js -tiedosto on yksinkertainen templatointitoiminto.
