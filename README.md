@@ -87,7 +87,11 @@ Projekti rakentuu siten, että backend sijaitsee suoraan projektin juuressa ja f
 
 Tämä ratkaisu rajoittaa npm:n käytön ainoastaan backendiin. Fronttiin ei voitu asentaa lisäpalikoita npm:n kautta, koska sieltä ei ole näkyvyyttä `wwwroot`-kansion ulkopuolelle.
 
-Frontendissa käytetään erillistä reititin-moduulia, joka käsittelee osoitteita. Kaikki `/views**-polun alle osoittavat URL-osoitteet käsittelee frontend. Backend siis käytännössä katsoo, kohdistuuko pyyntö juureen tai /views-polkuun. Jos kohdistuu, annetaan index.html -tiedosto, joka lataa javascript-koodin, joka puolestaan käsittelee osoitteen oikein. Jokainen erillinen URL-osoite käynnistää main.js-tiedostossa callback-funktion suorituksen. Nämä funktiot luovat sovelluksen näkymät.
+Autentikaatio on toteutettu melko yksinkertaisesti käyttämällä ExpressJwt-middlewarea. Käytännössä jokainen http-pyyntö ohjataan jwt-tarkistimen läpi. Tarkistin katsoo sallittujen polkujen listan, ja jättää tällä listalla olevat polut tarkistamatta. Lopuista poluista se tarkistaa JWT-tokenin oikeellisuuden. Tämä tarkistin löytyy polusta `lib/jwt.js`.
+
+Frontendissa käytetään erillistä reititin-moduulia, joka käsittelee osoitteita. Kaikki `/views` -polun alle osoittavat URL-osoitteet käsittelee frontend. Backend siis käytännössä katsoo, kohdistuuko pyyntö juureen tai `/views` -polkuun. Jos kohdistuu, annetaan index.html -tiedosto, joka lataa javascript-koodin, joka puolestaan käsittelee osoitteen oikein. Jokainen erillinen URL-osoite käynnistää main.js-tiedostossa callback-funktion suorituksen. Nämä funktiot luovat sovelluksen näkymät.
+
+Listaus frontendin skriptitiedostoista (`wwwroot/js`-kansiossa)
 
  - verbs.js -tiedostossa käsitellään frontendista lähetettävät rajapintakutsut ja niiden vastaukset.
  - user.js -tiedostossa on käyttäjän tietojen hallintaan liittyvät funktiot
