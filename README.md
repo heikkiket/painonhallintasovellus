@@ -72,11 +72,12 @@ POST localhost:8081
 
 ## Rajapintakuvaus
 
-| Metodi | Endpoint | Body | Kuvaus |
-| GET    | /measures/:userId |      |        |
-| POST   |          |      |        |
-| PUT    |          |      |        |
-|        |          |      |        |
-|        |          |      |        |
-|        |          |      |        |
-|        |          |      |        |
+| Metodi | Endpoint            | Body   | Kuvaus   |
+| ------ | :-----------------: | -----: | -------: |
+| GET    | /measures/:userId   |        |          |
+| POST   |                     |        |          |
+| PUT    |                     |        |          |
+|        |                     |        |          |
+|        |                     |        |          |
+|        |                     |        |          |
+|        |                     |        |          |
