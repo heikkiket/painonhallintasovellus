@@ -73,9 +73,10 @@ Content-Type: application/json
 
 ## Rajapintakuvaus
 
-| Metodi | Endpoint            | Body                                                                                                     | Palauttaa                    | Kuvaus                                        |
-| ------ | :-----------------: | -----:                                                                                                   | :--------                    | -------:                                      |
-| POST   | /login              | ```{"username": "user",<br> "password": "pass"}```                                                       | Token ja käyttäjätietue      |                                               |
+| Metodi | Endpoint            | Body                    | Palauttaa | Kuvaus   |
+| ------ | :----------------- | :-----                  | :-------- | :------- |
+| POST   | /login              | ```{"username": "user", |           |          |
+"password": "pass"}```                                                       | Token ja käyttäjätietue      |                                               |
 | GET    | /myaccount/:id      | -                                                                                                        | Käyttäjätietue               | Palauttaa käyttäjätietueen.                   |
 | PUT    | /myaccount/:id      | ```{"name": "user",<br> "height": 190, <br>"startingWeight": 90,<br> "targetWeight": 85}```              |                              |                                               |
 | GET    | /measures/:userId   | -                                                                                                        |                              |                                               |
