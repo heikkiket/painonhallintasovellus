@@ -5,7 +5,7 @@ function getMeasures() {
     fetchResult('GET','/measures/'+userId,{}, function (data) {
         let results = countResults(data);
 
-        showTemplate("weight-measures-template","weight-history-place", {data: results.data });
+        showTemplate("weight-measures-template","weight-history-place", {data: results.data.reverse() });
     });
 }
 function getMeasuresHeader() {
@@ -47,6 +47,7 @@ function postMeasure() {
     let userId = window.state.userId;
 
     fetchResult('POST','/measures/' + userId, {weightToday: weight} , function (data) {
+        getMeasuresHeader();
     });
 }
 
@@ -99,7 +100,7 @@ function countResults(data) {
         let prevWeight = first.Weight;
 
         let i;
-        for (i = data.length - 1; i >= 0  ; i--) {
+        for (i = 0; i <= data.length-1; i++) {
 
             data[i].MeasureDate = new Date(data[i].MeasureDate);
 
